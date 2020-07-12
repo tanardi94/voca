@@ -39,7 +39,7 @@ use yii\helpers\Html;
 
                             <p>
                                 <?= Yii::$app->user->identity->username ?>
-                                <small>Member since <?= Yii::$app->user->identity->created_at ?></small>
+                                <small>Member since <?= date('F d, Y', strtotime(Yii::$app->user->identity->created_at)) ?></small>
                             </p>
                         </li>
                         <!-- Menu Body -->
