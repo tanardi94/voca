@@ -12,7 +12,7 @@
         "irc": "irc://irc.freenode.net/yii",
         "source": "https://github.com/yiisoft/yii2"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "php": ">=7.0.0",
         "yiisoft/yii2": "~2.0.19",
@@ -28,7 +28,7 @@
         "dmstr/yii2-adminlte-asset": "2.4.4",
         "miloschuman/yii2-highcharts-widget": "^7.0",
         "fortawesome/font-awesome": "4.7",
-        "rmrevin/yii2-fontawesome": "2.17",
+        "rmrevin/yii2-fontawesome": "*",
         "kartik-v/yii2-nav-x": "*",
         "wbraganca/yii2-dynamicform": "dev-master",
         "linslin/yii2-curl": "*",
@@ -36,12 +36,16 @@
         "moonlandsoft/yii2-phpexcel": "*",
         "yii2tech/spreadsheet": "^1.0",
         "codemix/yii2-excelexport": "^2.7",
-        "kartik-v/yii2-widget-select2": "@dev"
+        "kartik-v/yii2-widget-select2": "@dev",
+        "vintage/yii2-lets-talk": "~1.0",
+        "yiisoft/yii2-faker": "*",
+        "kartik-v/yii2-widget-fileinput": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
         "yiisoft/yii2-debug": "*",
         "yiisoft/yii2-gii": "*",
+        "yiisoft/yii2-bootstrap4": "~1.0.0",
         "yiisoft/yii2-faker": "*"
     },
     "config": {
