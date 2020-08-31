@@ -9,10 +9,10 @@ use yii\web\AssetBundle;
  */
 class ModistAsset extends AssetBundle
 {
-    public $sourcePath = '@frontend/themes/modist';
+    public $sourcePath = '@app/themes/modist';
     // public $basePath = '@webroot';
     // public $baseUrl = '@web';
-    public $images = '@frontend/themes/modist/images';
+    public $images = '@web/modist/images';
     public $css = [
         "css/icomoon.css",
         "css/style.css",
@@ -32,8 +32,15 @@ class ModistAsset extends AssetBundle
     public $js = [
         "js/aos.js",
         "js/scrollax.min.js",
+        "js/main.js",
         "js/popper.min.js",
-        "js/main.js"
+        "js/jquery.easing.1.3.js",
+        "js/jquery.waypoints.min.js",
+        "js/jquery.stellar.min.js",
+        "js/owl.carousel.min.js",
+        "js/jquery.magnific-popup.min.js",
+        "js/jquery.animateNumber.min.js",
+        "js/bootstrap-datepicker.js"
     ];
     public $depends = [
         'yii\web\YiiAsset',
