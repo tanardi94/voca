@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\models\Product;
 use Yii;
 use backend\models\ProductReview;
 use backend\models\ProductReviewSearch;
@@ -52,8 +53,11 @@ class ProductReviewController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+        $product = Product::findOne(['id' => $model->product_id]);
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+            'product' => $product
         ]);
     }
 
@@ -104,7 +108,9 @@ class ProductReviewController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+        $model->status = 0;
+        $model->save();
 
         return $this->redirect(['index']);
     }

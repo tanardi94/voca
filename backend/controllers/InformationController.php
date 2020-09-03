@@ -1,6 +1,6 @@
 <?php
 
-namespace backend\models;
+namespace backend\controllers;
 
 use Yii;
 use backend\models\Information;
@@ -104,8 +104,9 @@ class InformationController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
+        $model = $this->findModel($id);
+        $model->status = 0;
+        $model->save();
         return $this->redirect(['index']);
     }
 

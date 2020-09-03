@@ -9,36 +9,36 @@ use yii\web\AssetBundle;
  */
 class SublimeAsset extends AssetBundle
 {
-    public $sourcePath = '@app/themes/sublime';
-    // public $basePath = '@webroot';
-    // public $baseUrl = '@web';
+    public $sourcePath = '@web/themes/sublime';
+    public $basePath = '@webroot';
+    public $baseUrl = '@web';
     public $images = '@web/sublime/images';
     public $css = [
-        "styles/bootstrap4/bootstrap.min.css",
-        "plugins/font-awesome-4.7.0/css/font-awesome.min.css",
-        "plugins/OwlCarousel2-2.2.1/owl.carousel.css",
-        "plugins/OwlCarousel2-2.2.1/owl.theme.default.css",
-        "plugins/OwlCarousel2-2.2.1/animate.css",
-        "styles/main_styles.css",
-        "styles/responsive.css"
+        "themes/sublime/styles/bootstrap4/bootstrap.min.css",
+        "themes/sublime/plugins/font-awesome-4.7.0/css/font-awesome.min.css",
+        "themes/sublime/plugins/OwlCarousel2-2.2.1/owl.carousel.css",
+        "themes/sublime/plugins/OwlCarousel2-2.2.1/owl.theme.default.css",
+        "themes/sublime/plugins/OwlCarousel2-2.2.1/animate.css",
+        "themes/sublime/styles/main_styles.css",
+        "themes/sublime/styles/responsive.css"
     ];
     public $js = [
-        "js/jquery-3.2.1.min.js",
-        "styles/bootstrap4/popper.js",
-        "styles/bootstrap4/bootstrap.min.js",
-        "plugins/greensock/TweenMax.min.js",
-        "plugins/greensock/TimelineMax.min.js",
-        "plugins/scrollmagic/ScrollMagic.min.js",
-        "plugins/greensock/animation.gsap.min.js",
-        "plugins/greensock/ScrollToPlugin.min.js",
-        "plugins/OwlCarousel2-2.2.1/owl.carousel.js",
-        "plugins/Isotope/isotope.pkgd.min.js",
-        "plugins/easing/easing.js",
-        "plugins/parallax-js-master/parallax.min.js",
-        "js/custom.js"
+        "themes/sublime/js/jquery-3.2.1.min.js",
+        "themes/sublime/styles/bootstrap4/popper.js",
+        "themes/sublime/styles/bootstrap4/bootstrap.min.js",
+        "themes/sublime/plugins/greensock/TweenMax.min.js",
+        "themes/sublime/plugins/greensock/TimelineMax.min.js",
+        "themes/sublime/plugins/scrollmagic/ScrollMagic.min.js",
+        "themes/sublime/plugins/greensock/animation.gsap.min.js",
+        "themes/sublime/plugins/greensock/ScrollToPlugin.min.js",
+        "themes/sublime/plugins/OwlCarousel2-2.2.1/owl.carousel.js",
+        "themes/sublime/plugins/Isotope/isotope.pkgd.min.js",
+        "themes/sublime/plugins/easing/easing.js",
+        "themes/sublime/plugins/parallax-js-master/parallax.min.js",
+        "themes/sublime/js/custom.js"
     ];
-    public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap4\BootstrapAsset',
-    ];
+    // public $depends = [
+    //     'yii\web\YiiAsset',
+    //     'yii\bootstrap4\BootstrapAsset',
+    // ];
 }

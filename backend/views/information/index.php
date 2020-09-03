@@ -9,10 +9,11 @@ use yii\grid\GridView;
 
 $this->title = 'Informations';
 $this->params['breadcrumbs'][] = $this->title;
+$status = ['0' => 'Not Active', '1' => 'Active'];
 ?>
 <div class="information-index box-body table-responsive">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1></h1>
 
     <p>
         <?= Html::a('Create Information', ['create'], ['class' => 'btn btn-success']) ?>
@@ -29,8 +30,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'title',
             'description:ntext',
-            'status',
-            'created_at',
+            [
+                'attribute' => 'status',
+                'value' => function($data) {
+                    $status = ['0' => 'Not Active', '1' => 'Active'];
+                    return $status[$data->status];
+                },
+                'filter' => $status
+            ],
             //'created_by',
             //'updated_at',
             //'updated_by',

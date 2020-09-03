@@ -34,6 +34,8 @@
                     ['label' => 'Product', 'icon' => 'shopping-cart', 'url' => ['/product']],
                     ['label' => 'User', 'icon' => 'user', 'url' => ['/users']],
                     ['label' => 'Points', 'icon' => 'tags', 'url' => ['/users-points']],
+                    ['label' => 'User', 'icon' => 'user', 'url' => ['/users']],
+                    ['label' => 'Information', 'icon' => 'file', 'url' => ['/information']],
                     ['label' => 'Rating and Review', 'icon' => 'star', 'url' => ['/product-review']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     // [

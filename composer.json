@@ -21,6 +21,7 @@
 		    "yiisoft/yii2-imagine": "^2.1",
 		    "yiisoft/yii2-jui": "~2.0.0",
         "janisto/yii2-timepicker": "*",
+        "2amigos/yii2-ckeditor-widget" : "~2.1",
         "giannisdag/yii2-check-login-attempts": "^1.1",
         "kartik-v/yii2-widget-growl": "*",
         "kartik-v/yii2-date-range": "*",

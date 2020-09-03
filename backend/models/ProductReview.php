@@ -1,6 +1,7 @@
 <?php
 
 namespace backend\models;
+use backend\models\CustomActiveRecord;
 
 use Yii;
 
@@ -21,7 +22,7 @@ use Yii;
  * @property Product $product
  * @property Users $user
  */
-class ProductReview extends \yii\db\ActiveRecord
+class ProductReview extends CustomActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -37,7 +38,7 @@ class ProductReview extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['product_id', 'user_id', 'created_at', 'created_by', 'updated_at', 'updated_by'], 'required'],
+            [['product_id', 'user_id'], 'required'],
             [['product_id', 'user_id', 'rating', 'status', 'created_by', 'updated_by'], 'integer'],
             [['review'], 'string'],
             [['created_at', 'updated_at'], 'safe'],

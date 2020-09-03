@@ -4,8 +4,67 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ee2f7a24803d6ea7fa5f12b9108b5788",
+    "content-hash": "83cd4ec3d74373c3d0ded799953f0dbd",
     "packages": [
+        {
+            "name": "2amigos/yii2-ckeditor-widget",
+            "version": "2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/2amigos/yii2-ckeditor-widget.git",
+                "reference": "77812cafc6f1d3dd43ee0f581f8a431d0d4f8227"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/2amigos/yii2-ckeditor-widget/zipball/77812cafc6f1d3dd43ee0f581f8a431d0d4f8227",
+                "reference": "77812cafc6f1d3dd43ee0f581f8a431d0d4f8227",
+                "shasum": ""
+            },
+            "require": {
+                "ckeditor/ckeditor": "^4.7",
+                "sunhater/kcfinder": "*",
+                "yiisoft/yii2": "^2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*",
+                "roave/security-advisories": "dev-master"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "dosamigos\\ckeditor\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "2amigOS! Consulting Group",
+                    "email": "hola@2amigos.us",
+                    "homepage": "http://2amigos.us",
+                    "role": "Developer"
+                }
+            ],
+            "description": "CKEditor widget for Yii2.",
+            "homepage": "http://yiiwheels.com/extension/ckeditor-widget",
+            "keywords": [
+                "2amigos",
+                "CKEditor",
+                "extension",
+                "widget",
+                "yii",
+                "yii 2",
+                "yii2"
+            ],
+            "time": "2019-04-06T16:44:11+00:00"
+        },
         {
             "name": "2amigos/yii2-date-picker-widget",
             "version": "dev-master",
@@ -112,7 +171,7 @@
             "version": "v3.4.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:twbs/bootstrap.git",
+                "url": "https://github.com/twbs/bootstrap.git",
                 "reference": "68b0d231a13201eb14acd3dc84e51543d16e5f7e"
             },
             "dist": {
@@ -151,16 +210,16 @@
         },
         {
             "name": "bower-asset/highcharts",
-            "version": "v7.2.1",
+            "version": "v7.2.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/highcharts/highcharts-dist.git",
-                "reference": "6b1a03af7f26ce8ed9b62bab6a041a7f477b3f7c"
+                "url": "git@github.com:highcharts/highcharts-dist.git",
+                "reference": "4e5c8c82ad58815821de563f327de2fa3427d244"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/highcharts/highcharts-dist/zipball/6b1a03af7f26ce8ed9b62bab6a041a7f477b3f7c",
-                "reference": "6b1a03af7f26ce8ed9b62bab6a041a7f477b3f7c"
+                "url": "https://api.github.com/repos/highcharts/highcharts-dist/zipball/4e5c8c82ad58815821de563f327de2fa3427d244",
+                "reference": "4e5c8c82ad58815821de563f327de2fa3427d244"
             },
             "type": "bower-asset",
             "license": [
@@ -193,7 +252,7 @@
             "version": "3.5.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jquery/jquery-dist.git",
+                "url": "git@github.com:jquery/jquery-dist.git",
                 "reference": "4c0e4becb8263bb5b3e6dadc448d8e7305ef8215"
             },
             "dist": {
@@ -381,6 +440,48 @@
                 "yii"
             ],
             "time": "2013-12-10T17:49:58+00:00"
+        },
+        {
+            "name": "ckeditor/ckeditor",
+            "version": "4.14.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ckeditor/ckeditor4-releases.git",
+                "reference": "8eccaf31ad9832a113757d379758996ed2150f60"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ckeditor/ckeditor4-releases/zipball/8eccaf31ad9832a113757d379758996ed2150f60",
+                "reference": "8eccaf31ad9832a113757d379758996ed2150f60",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+",
+                "LGPL-2.1+",
+                "MPL-1.1+"
+            ],
+            "authors": [
+                {
+                    "name": "CKSource",
+                    "homepage": "https://cksource.com"
+                }
+            ],
+            "description": "JavaScript WYSIWYG web text editor.",
+            "homepage": "https://ckeditor.com/ckeditor-4/",
+            "keywords": [
+                "CKEditor",
+                "ckeditor4",
+                "editor",
+                "fckeditor",
+                "html",
+                "javascript",
+                "richtext",
+                "text",
+                "wysiwyg"
+            ],
+            "time": "2020-06-17T12:33:25+00:00"
         },
         {
             "name": "codemix/yii2-excelexport",
@@ -2032,12 +2133,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/MarkBaker/PHPMatrix.git",
-                "reference": "5842bfa26dd62b96043adeb16078015cceeea098"
+                "reference": "182d44c3b2e3b063468f7481ae3ef71c69dc1409"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MarkBaker/PHPMatrix/zipball/5842bfa26dd62b96043adeb16078015cceeea098",
-                "reference": "5842bfa26dd62b96043adeb16078015cceeea098",
+                "url": "https://api.github.com/repos/MarkBaker/PHPMatrix/zipball/182d44c3b2e3b063468f7481ae3ef71c69dc1409",
+                "reference": "182d44c3b2e3b063468f7481ae3ef71c69dc1409",
                 "shasum": ""
             },
             "require": {
@@ -2093,20 +2194,20 @@
                 "matrix",
                 "vector"
             ],
-            "time": "2020-08-16T10:15:10+00:00"
+            "time": "2020-08-28T19:41:55+00:00"
         },
         {
             "name": "mikehaertl/php-tmpfile",
-            "version": "1.1.5",
+            "version": "1.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mikehaertl/php-tmpfile.git",
-                "reference": "491476ffb63612ee4bbfa063d4ff02717fc6bf42"
+                "reference": "20a1879033d6b044cfba5dfcf55cbb418249d0ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mikehaertl/php-tmpfile/zipball/491476ffb63612ee4bbfa063d4ff02717fc6bf42",
-                "reference": "491476ffb63612ee4bbfa063d4ff02717fc6bf42",
+                "url": "https://api.github.com/repos/mikehaertl/php-tmpfile/zipball/20a1879033d6b044cfba5dfcf55cbb418249d0ec",
+                "reference": "20a1879033d6b044cfba5dfcf55cbb418249d0ec",
                 "shasum": ""
             },
             "require-dev": {
@@ -2132,7 +2233,7 @@
             "keywords": [
                 "files"
             ],
-            "time": "2020-07-21T11:54:36+00:00"
+            "time": "2020-08-30T09:54:54+00:00"
         },
         {
             "name": "miloschuman/yii2-highcharts-widget",
@@ -2309,12 +2410,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "969b211f9a51aa1f6c01d1d2aef56d3bd91598e5"
+                "reference": "a3409d10079990eeb489c3fead0ac070b5b38895"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/969b211f9a51aa1f6c01d1d2aef56d3bd91598e5",
-                "reference": "969b211f9a51aa1f6c01d1d2aef56d3bd91598e5",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/a3409d10079990eeb489c3fead0ac070b5b38895",
+                "reference": "a3409d10079990eeb489c3fead0ac070b5b38895",
                 "shasum": ""
             },
             "require": {
@@ -2355,7 +2456,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-06-29T13:22:24+00:00"
+            "time": "2020-08-28T16:31:07+00:00"
         },
         {
             "name": "myclabs/php-enum",
@@ -3022,6 +3123,61 @@
             "time": "2020-08-27T06:55:47+00:00"
         },
         {
+            "name": "sunhater/kcfinder",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sunhater/kcfinder.git",
+                "reference": "b645d2a81e647d63780c238b130593e32b4d95a9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sunhater/kcfinder/zipball/b645d2a81e647d63780c238b130593e32b4d95a9",
+                "reference": "b645d2a81e647d63780c238b130593e32b4d95a9",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gd": "*",
+                "php": ">=5.3.0"
+            },
+            "suggest": {
+                "ext-curl": "*",
+                "ext-exif": "*",
+                "ext-fileinfo": "*",
+                "ext-gmagick": "*",
+                "ext-http": "*",
+                "ext-imagick": "*",
+                "ext-sockets": "*",
+                "ext-zip": "*"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+",
+                "LGPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Pavel Tzonkov",
+                    "email": "sunhater@sunhater.com",
+                    "homepage": "http://sunhater.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "KCFinder web file manager",
+            "homepage": "http://kcfinder.sunhater.com",
+            "keywords": [
+                "explorer",
+                "file",
+                "file explorer",
+                "file manager",
+                "finder",
+                "kcfinder",
+                "manager"
+            ],
+            "time": "2014-09-27T18:47:34+00:00"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "dev-master",
             "source": {
@@ -3165,12 +3321,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "702ee651db23dc452bf1fd6dea6ca2f671ed2681"
+                "reference": "82fe363780d2d2089066e34495a7f8bd56f2bf84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/702ee651db23dc452bf1fd6dea6ca2f671ed2681",
-                "reference": "702ee651db23dc452bf1fd6dea6ca2f671ed2681",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/82fe363780d2d2089066e34495a7f8bd56f2bf84",
+                "reference": "82fe363780d2d2089066e34495a7f8bd56f2bf84",
                 "shasum": ""
             },
             "require": {
@@ -3228,7 +3384,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-08-09T09:13:53+00:00"
+            "time": "2020-09-02T16:06:40+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -3974,12 +4130,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "4acd4b47a0bd1879f5b6e3a1b999472a52ee81a9"
+                "reference": "a6a3a00fa153e8ad18795ac1cdd322d4a26270fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/4acd4b47a0bd1879f5b6e3a1b999472a52ee81a9",
-                "reference": "4acd4b47a0bd1879f5b6e3a1b999472a52ee81a9",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/a6a3a00fa153e8ad18795ac1cdd322d4a26270fb",
+                "reference": "a6a3a00fa153e8ad18795ac1cdd322d4a26270fb",
                 "shasum": ""
             },
             "require": {
@@ -4080,7 +4236,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-08-19T17:32:15+00:00"
+            "time": "2020-08-27T13:44:34+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap",

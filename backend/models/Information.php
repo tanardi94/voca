@@ -1,6 +1,7 @@
 <?php
 
 namespace backend\models;
+use backend\models\CustomActiveRecord;
 
 use Yii;
 
@@ -16,7 +17,7 @@ use Yii;
  * @property string $updated_at
  * @property int $updated_by
  */
-class Information extends \yii\db\ActiveRecord
+class Information extends CustomActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -32,7 +33,7 @@ class Information extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'description', 'created_at', 'created_by', 'updated_at', 'updated_by'], 'required'],
+            [['title', 'description'], 'required'],
             [['description'], 'string'],
             [['status', 'created_by', 'updated_by'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
