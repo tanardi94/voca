@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="users-points-index box-body table-responsive">
 
-    <h1> </h1>
+    <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a('Create Users Points', ['create'], ['class' => 'btn btn-success']) ?>

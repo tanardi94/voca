@@ -104,4 +104,15 @@ class Product extends CustomActiveRecord
         }
         return false;
     }
+
+    public function ratings()
+    {
+        $ratings = ProductReview::find()->where(['status' => 1, 'product_id' => $this->id])->average('rating');
+
+        if(!$ratings) {
+            return 0;
+        }
+        
+        return $ratings;
+    }
 }

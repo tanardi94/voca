@@ -13,9 +13,9 @@ $this->params['breadcrumbs'][] = ['label' => 'Users Points', 'url' => ['index']]
 // $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="users-points-view">
+<div class="users-points-view box-body table-responsive">
 
-    <h1></h1>
+    <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>

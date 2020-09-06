@@ -13,7 +13,7 @@ $status = ['0' => 'Not Active', '1' => 'Active'];
 ?>
 <div class="information-index box-body table-responsive">
 
-    <h1></h1>
+    <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a('Create Information', ['create'], ['class' => 'btn btn-success']) ?>

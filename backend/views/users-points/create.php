@@ -9,9 +9,9 @@ $this->title = 'Create Users Points';
 $this->params['breadcrumbs'][] = ['label' => 'Users Points', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="users-points-create">
+<div class="users-points-create box-body table-responsive">
 
-    <h1> </h1>
+    <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,

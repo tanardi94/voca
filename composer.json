@@ -40,7 +40,8 @@
         "kartik-v/yii2-widget-select2": "@dev",
         "vintage/yii2-lets-talk": "~1.0",
         "yiisoft/yii2-faker": "*",
-        "kartik-v/yii2-widget-fileinput": "*"
+        "kartik-v/yii2-widget-fileinput": "*",
+        "2amigos/yii2-tinymce-widget": "~1.1"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

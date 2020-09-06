@@ -1,6 +1,50 @@
 <aside class="main-sidebar">
 
     <section class="sidebar">
+        <?php 
+        $menuitems = [
+            // ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
+            ['label' => 'Product', 'icon' => 'shopping-cart', 'url' => ['/product']],
+            ['label' => 'User', 'icon' => 'user', 'url' => ['/users']],
+            ['label' => 'Points', 'icon' => 'tags', 'url' => ['/users-points']],
+            ['label' => 'Banners', 'icon' => 'banner', 'url' => ['/banner']],
+            ['label' => 'Information', 'icon' => 'exclamation', 'url' => ['/information']],
+            ['label' => 'Rating and Review', 'icon' => 'star', 'url' => ['/product-review']],
+            ['label' => 'Blog', 'icon' => 'book', 'url' => ['/blog']],
+            ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
+
+            
+            // [
+            //     'label' => 'Same tools',
+            //     'icon' => 'share',
+            //     'url' => '#',
+            //     'items' => [
+            //         ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
+            //         ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'],],
+            //         [
+            //             'label' => 'Level One',
+            //             'icon' => 'circle-o',
+            //             'url' => '#',
+            //             'items' => [
+            //                 ['label' => 'Level Two', 'icon' => 'circle-o', 'url' => '#',],
+            //                 [
+            //                     'label' => 'Level Two',
+            //                     'icon' => 'circle-o',
+            //                     'url' => '#',
+            //                     'items' => [
+            //                         ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
+            //                         ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
+            //                     ],
+            //                 ],
+            //             ],
+            //         ],
+            //     ],
+            // ],
+            ];
+        // if(Yii::$app->user->identity->role == 11) {
+        //     $menuitems[] = ['label' => 'Admin', 'icon' => 'user-secret', 'url' => ['/admin']];
+        // }
+        ?>
 
         <!-- Sidebar user panel -->
         <!-- <div class="user-panel">
@@ -29,42 +73,7 @@
         <?= dmstr\widgets\Menu::widget(
             [
                 'options' => ['class' => 'sidebar-menu'],
-                'items' => [
-                    // ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
-                    ['label' => 'Product', 'icon' => 'shopping-cart', 'url' => ['/product']],
-                    ['label' => 'User', 'icon' => 'user', 'url' => ['/users']],
-                    ['label' => 'Points', 'icon' => 'tags', 'url' => ['/users-points']],
-                    ['label' => 'User', 'icon' => 'user', 'url' => ['/users']],
-                    ['label' => 'Information', 'icon' => 'file', 'url' => ['/information']],
-                    ['label' => 'Rating and Review', 'icon' => 'star', 'url' => ['/product-review']],
-                    ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
-                    // [
-                    //     'label' => 'Same tools',
-                    //     'icon' => 'share',
-                    //     'url' => '#',
-                    //     'items' => [
-                    //         ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
-                    //         ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'],],
-                    //         [
-                    //             'label' => 'Level One',
-                    //             'icon' => 'circle-o',
-                    //             'url' => '#',
-                    //             'items' => [
-                    //                 ['label' => 'Level Two', 'icon' => 'circle-o', 'url' => '#',],
-                    //                 [
-                    //                     'label' => 'Level Two',
-                    //                     'icon' => 'circle-o',
-                    //                     'url' => '#',
-                    //                     'items' => [
-                    //                         ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                    //                         ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                    //                     ],
-                    //                 ],
-                    //             ],
-                    //         ],
-                    //     ],
-                    // ],
-                ],
+                'items' => $menuitems,
             ]
         ) ?>
 

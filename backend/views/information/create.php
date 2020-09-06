@@ -9,9 +9,9 @@ $this->title = 'Create Information';
 $this->params['breadcrumbs'][] = ['label' => 'Informations', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="information-create">
+<div class="information-create box-body table-responsive">
 
-    <h1></h1>
+    <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,

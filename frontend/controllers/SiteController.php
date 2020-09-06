@@ -1,6 +1,12 @@
 <?php
 namespace frontend\controllers;
 
+use backend\models\Banners;
+use backend\models\Blogs;
+use backend\models\Information;
+use backend\models\Product;
+use backend\models\ProductReview;
+use backend\models\UsersPoints;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -75,6 +81,25 @@ class SiteController extends Controller
     public function actionIndex()
     {
         return $this->render('index');
+    }
+
+    public function actionHome()
+    {
+        $products = Product::findAll(['status' => 1]);
+        $reviews = ProductReview::findAll(['status' => 1]);
+        $infos = Information::findAll(['status' => 1]);
+        $blogs = Blogs::findAll(['status' => 1]);
+        $points = UsersPoints::findAll(['status' => 1]);
+        $banners = Banners::findAll(['status' => 1]);
+
+        return $this->render('home', [
+            'products' => $products,
+            'reviews' => $reviews,
+            'infos' => $infos,
+            'blogs' => $blogs,
+            'points' => $points,
+            'banners' => $banners
+        ]);
     }
 
     /**
