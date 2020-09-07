@@ -51,8 +51,8 @@ class SellingAsset extends AssetBundle
     ];
 
 
-    // public $depends = [
-    //     'yii\web\YiiAsset',
-    //     'yii\bootstrap\BootstrapAsset',
-    // ];
+    public $depends = [
+        'yii\web\YiiAsset',
+        // 'yii\bootstrap\BootstrapAsset',
+    ];
 }

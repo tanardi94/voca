@@ -51,6 +51,94 @@ $bannerCount = count($banners) - 1;
   </a>
 </div>
 
+<div class="container">
+        <div class="row mb-5">
+        
+        </div>
+        <div class="row align-items-stretch">
+          <div class="col-md-6 col-lg-3 mb-3 mb-lg-3" data-aos="fade-up">
+            <div class="unit-4 d-flex">
+              <div class="unit-4-icon mr-4"><span class="text-primary icon-pie_chart"></span></div>
+              <div>
+                <h3>Partner Resmi Voca</h3>
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 mb-3 mb-lg-3" data-aos="fade-up" data-aos-delay="100">
+            <div class="unit-4 d-flex">
+              <div class="unit-4-icon mr-4"><span class="text-primary icon-backspace"></span></div>
+              <div>
+                <h3>Bebas Ongkos Kirim</h3>
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 mb-3 mb-lg-3" data-aos="fade-up" data-aos-delay="200">
+            <div class="unit-4 d-flex">
+              <div class="unit-4-icon mr-4"><span class="text-primary icon-av_timer"></span></div>
+              <div>
+                <h3>Gratis membership tanpa daftar lagi</h3>
+                
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-6 col-lg-3 mb-3 mb-lg-3" data-aos="fade-up" data-aos-delay="300">
+            <div class="unit-4 d-flex">
+              <div class="unit-4-icon mr-4"><span class="text-primary icon-beenhere"></span></div>
+              <div>
+                <h3>Kemasan Aman Bebas Biaya</h3>
+                
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+      <div class="site-section border-bottom" id="team-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center">
+            <h3 class="section-sub-title">The Reasons</h3>
+            <h2 class="section-title mb-3">Kenapa Voca</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
+            <div class="person text-center">
+              <img src="images/person_2.jpg" alt="Image" class="img-fluid rounded w-75 mb-3">
+              <h3>John Rooster</h3>
+              <p class="position text-muted">Co-Founder, President</p>
+              <p class="mb-4">Nisi at consequatur unde molestiae quidem provident voluptatum deleniti quo iste error eos est praesentium distinctio cupiditate tempore suscipit inventore deserunt tenetur.</p>
+              
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
+            <div class="person text-center">
+              <img src="images/person_3.jpg" alt="Image" class="img-fluid rounded w-75 mb-3">
+              <h3>Tom Sharp</h3>
+              <p class="position text-muted">Co-Founder, COO</p>
+              <p class="mb-4">Nisi at consequatur unde molestiae quidem provident voluptatum deleniti quo iste error eos est praesentium distinctio cupiditate tempore suscipit inventore deserunt tenetur.</p>
+              
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="300">
+            <div class="person text-center">
+              <img src="images/person_4.jpg" alt="Image" class="img-fluid rounded w-75 mb-3">
+              <h3>Winston Hodson</h3>
+              <p class="position text-muted">Marketing</p>
+              <p class="mb-4">Nisi at consequatur unde molestiae quidem provident voluptatum deleniti quo iste error eos est praesentium distinctio cupiditate tempore suscipit inventore deserunt tenetur.</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
     <div class="site-section" id="products-section">

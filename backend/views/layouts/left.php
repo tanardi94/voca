@@ -10,6 +10,7 @@
             ['label' => 'Banners', 'icon' => 'banner', 'url' => ['/banner']],
             ['label' => 'Information', 'icon' => 'exclamation', 'url' => ['/information']],
             ['label' => 'Rating and Review', 'icon' => 'star', 'url' => ['/product-review']],
+            ['label' => 'Segment', 'icon' => 'star', 'url' => ['/segment']],
             ['label' => 'Blog', 'icon' => 'book', 'url' => ['/blog']],
             ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
 

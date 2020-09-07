@@ -11,6 +11,7 @@ use frontend\assets\AppAsset;
 use common\widgets\Alert;
 use frontend\assets\SellingAsset;
 use yii\helpers\Url;
+use yii\web\YiiAsset;
 
 $selling = SellingAsset::register($this);
 ?>
@@ -52,8 +53,7 @@ $selling = SellingAsset::register($this);
           </div>
           <div class="col-6">
             <p class="mb-0 float-right">
-              <span class="mr-3"><a href="tel://#"> <span class="icon-phone mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">(+1) 234 5678 9101</span></a></span>
-              <span><a href="#"><span class="icon-envelope mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">shop@yourdomain.com</span></a></span>
+              <span class="mr-3"><a href="https://wa.me/6281232999913"> <span class="icon-whatsapp mr-2" style="position: relative; top: 2px; color: #239ba6;"></span><span class="d-none d-lg-inline-block text-black">(+62) 812 3299 9913</span></a></span>
             </p>
             
           </div>
@@ -73,13 +73,33 @@ $selling = SellingAsset::register($this);
             <nav class="site-navigation position-relative text-right" role="navigation">
 
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li><a href="#home-section" class="nav-link">Home</a></li>
+                <li><a href="<?= Url::to(['/site/home']) ?>" class="nav-link">Home</a></li>
                 <li><a href="#products-section" class="nav-link">Products</a></li>
-                <li><a href="#about-section" class="nav-link">About Us</a></li>
-                <li><a href="#special-section" class="nav-link">Special</a></li>
                 <li><a href="#testimonials-section" class="nav-link">Testimonials</a></li>
+                <li><a href="#special-section" class="nav-link">Special</a></li>
+                <li><a href="#about-section" class="nav-link">Belanja</a></li>
                 <li><a href="#blog-section" class="nav-link">Blog</a></li>
-                <li><a href="#contact-section" class="nav-link">Contact</a></li>
+                <?php
+                if(Yii::$app->user->isGuest):
+                ?>
+                <li><a href="<?= Url::to(['/site/login']) ?>" class="nav-link">Membership</a></li>
+                <?php
+                else:
+                ?>
+                <li>
+                <!-- <div class="dropdown"> -->
+                <a class="nav-link dropdown dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span style="text-transform:uppercase"><?= Yii::$app->user->identity->username ?></span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  <a class="nav-link dropdown-item" href="#">Account</a>
+                <?= Html::a('Logout', ['/site/logout'], ['class' => 'nav-link dropdown-item', 'data-method' => 'post'])
+                ?>
+                </div>
+              <!-- </div> -->
+                <!-- -->
+                </li>
+                <?php endif; ?>
               </ul>
             </nav>
           </div>
@@ -95,13 +115,13 @@ $selling = SellingAsset::register($this);
        
         <?= $content ?>
 
-<footer class="footer">
+<!-- <footer class="footer">
     <div class="container">
         <p class="pull-left">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
-</footer>
+</footer> -->
 
 <?php $this->endBody() ?>
 </body>
