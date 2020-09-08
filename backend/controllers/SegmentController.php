@@ -8,6 +8,7 @@ use backend\models\SegmentSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * SegmentController implements the CRUD actions for Segment model.
@@ -65,8 +66,17 @@ class SegmentController extends Controller
     public function actionCreate()
     {
         $model = new Segment();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        $model->scenario = 'create';
+        if ($model->load(Yii::$app->request->post())) {
+            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+            if(!empty($model->imageFile)) {
+                $fileName =  $model->name . '-' . rand(100,1000) . '-' . uniqid(date('siHyz'), true);
+                $model->image = $fileName . '.' . $model->imageFile->extension;
+                if($model->save(false)) {
+                    $model->imageFile->saveAs('@backend/web/uploads/segment/' . $fileName . '.' . $model->imageFile->extension);
+                }
+            }
+            $model->save(false);
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -85,8 +95,18 @@ class SegmentController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $model->scenario = 'update';
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+            if(!empty($model->imageFile)) {
+                $fileName =  $model->name . '-' . rand(100,1000) . '-' . uniqid(date('siHyz'), true);
+                $model->image = $fileName . '.' . $model->imageFile->extension;
+                if($model->save(false)) {
+                    $model->imageFile->saveAs('@backend/web/uploads/segment/' . $fileName . '.' . $model->imageFile->extension);
+                }
+            }
+            $model->save(false);
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -109,6 +129,19 @@ class SegmentController extends Controller
         $model->save();
 
         return $this->redirect(['index']);
+    }
+
+    public function actionDelimage($id)
+    {
+        $model = Segment::findOne($id);
+        if ($model->deleteImage()) {
+            Yii::$app->session->setFlash('success', 
+        'Your image was removed successfully. Upload another by clicking Browse below');
+        } else {
+            Yii::$app->session->setFlash('error', 
+        'Error removing image. Please try again later or contact the system admin.');
+        }
+        return $this->redirect(['update', 'id' => $model->id]);
     }
 
     /**

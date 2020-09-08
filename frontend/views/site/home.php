@@ -2,12 +2,14 @@
 
 /* @var $this yii\web\View */
 
+use backend\models\Segment;
 use frontend\assets\SellingAsset;
 use yii\helpers\Url;
 
 $selling = SellingAsset::register($this);
 $this->title = 'Voca Beauty Store';
 $bannerCount = count($banners) - 1;
+$belanja = Segment::find()->where(['status' => 1, 'seq' => 0, 'title' => 'Cara Berbelanja'])->one();
 ?>
 
 
@@ -181,40 +183,87 @@ $bannerCount = count($banners) - 1;
       </div>
     </div>
 
-    <div class="body-content">
+    <div class="site-section testimonial-wrap" id="testimonials-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center">
+            <h3 class="section-sub-title">People Says</h3>
+            <h2 class="section-title mb-3">Testimonials</h2>
+          </div>
+        </div>
+      </div>
+      <div class="slide-one-item home-slider owl-carousel">
+        <?php foreach ($reviews as $review): ?>
+          <div>
+            <div class="testimonial">
+              <figure class="mb-4 d-block align-items-center justify-content-center">
+                <div></div>
+              </figure>
+              <blockquote class="mb-3">
+                <p>&ldquo;<?= $review->review ?>&rdquo;</p>
+              </blockquote>
+              <p class="text-black"><strong><?= $review->user->name ?></strong></p>
 
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+              
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+          </div>
+          <?php endforeach; ?>
+          
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+          
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+        </div>
+    </div>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
+
+    <div class="site-blocks-cover overlay get-notification" id="special-section" style="background-image: url(images/hero_2.jpg); background-attachment: fixed; background-position: top;" data-aos="fade">
+      <div class="container">
+
+        <div class="row align-items-center justify-content-center">
+          <div class="col-md-7 text-center">
+            <h3 class="section-sub-title">Special Promo</h3>
+            <h3 class="section-title text-white mb-4">Summer Sale</h3>
+            <p class="mb-5 lead">Repudiandae nostrum natus excepturi fuga ullam accusantium vel ut eveniet aut consequatur laboriosam ipsam.</p>
+            
+            <div id="date-countdown" class="mb-5"></div>
+
+            <p><a href="#" class="btn btn-white btn-outline-white py-3 px-5 rounded-0 mb-lg-0 mb-2 d-block d-sm-inline-block">Shop Now</a></p>
+          </div>
         </div>
 
+      </div>
+    </div><br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div id="belanja-section" class="site-blocks-cover inner-page-cover overlay get-notification"  style="background-color: gray; background-attachment: fixed;" data-aos="fade">
+      <div class="container">
+
+        <div class="row align-items-center justify-content-center">
+          <div class="col-md-12">
+            <h2><?= $belanja->title ?></h2>
+            <p><?= $belanja->content ?></p>
+        </div>
+        <div class="col-md-4">
+        <a href="#" target="_blank">
+              <img src="<?= $selling->baseUrl ?>/img/tokopedia.png" style="width:150px;height:50px;" alt="">
+              </a>
+            </div>
+            <div class="col-md-4">
+              <a href="#" target="_blank">
+              <img src="<?= $selling->baseUrl ?>/img/shopee.png" style="width:150px;height:50px;" alt="">
+              </a>
+            </div>
+            <div class="col-md-4">
+              <a href="https://wa.me/6281232999913" target="_blank">
+              <img src="<?= $selling->baseUrl ?>/img/whatsapp.png" style="width:150px;height:50px;" alt="">
+              </a>
+            </div>
+        </div>
+      </div>
     </div>
+    
 </div>

@@ -47,7 +47,6 @@ class Segment extends \backend\models\CustomActiveRecord
             [['seq', 'segment_id', 'status', 'created_by', 'updated_by'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['title', 'image'], 'string', 'max' => 100],
-            [['segment_id'], 'exist', 'skipOnError' => true, 'targetClass' => Segment::className(), 'targetAttribute' => ['segment_id' => 'id']],
         ];
     }
 
@@ -61,34 +60,27 @@ class Segment extends \backend\models\CustomActiveRecord
             'title' => 'Title',
             'attr1' => 'Attr1',
             'content' => 'Content',
-            'seq' => 'Seq',
+            'seq' => 'Type',
             'image' => 'Image',
-            'segment_id' => 'Segment ID',
+            'segment_id' => 'Main Segment',
             'status' => 'Status',
             'created_by' => 'Created By',
             'created_at' => 'Created At',
             'updated_by' => 'Updated By',
             'updated_at' => 'Updated At',
+            'imageFile' => 'Image'
         ];
     }
 
-    /**
-     * Gets query for [[Segment]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getSegment()
-    {
-        return $this->hasOne(Segment::className(), ['id' => 'segment_id']);
-    }
 
-    /**
-     * Gets query for [[Segments]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getSegments()
+    public function deleteImage()
     {
-        return $this->hasMany(Segment::className(), ['segment_id' => 'id']);
+        $image = Yii::getAlias('@backend/web/uploads/segment/') . $this->image;
+        if(unlink($image)) {
+            $this->image = null;
+            $this->save();
+            return true;
+        }
+        return false;
     }
 }

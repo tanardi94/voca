@@ -116,6 +116,15 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionBlog()
+    {
+        $blogs = Blogs::findAll(['status' => 1]);
+
+        return $this->render('blog', [
+            'blogs' => $blogs
+        ]);
+    }
+
     /**
      * Logs in a user.
      *

@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'title',
-            'attr1:ntext',
+            // 'attr1:ntext',
             'content:ntext',
             'seq',
             //'segment_id',

@@ -39,27 +39,7 @@ $selling = SellingAsset::register($this);
       <div class="site-mobile-menu-body"></div>
     </div>
    
-    <div class="top-bar py-3 bg-light" id="home-section">
-      <div class="container">
-        <div class="row align-items-center">
-         
-          <div class="col-6 text-left">
-            <ul class="social-media">
-              <li><a href="#" class=""><span class="icon-facebook"></span></a></li>
-              <li><a href="#" class=""><span class="icon-twitter"></span></a></li>
-              <li><a href="#" class=""><span class="icon-instagram"></span></a></li>
-              <li><a href="#" class=""><span class="icon-linkedin"></span></a></li>
-            </ul>
-          </div>
-          <div class="col-6">
-            <p class="mb-0 float-right">
-              <span class="mr-3"><a href="https://wa.me/6281232999913"> <span class="icon-whatsapp mr-2" style="position: relative; top: 2px; color: #239ba6;"></span><span class="d-none d-lg-inline-block text-black">(+62) 812 3299 9913</span></a></span>
-            </p>
-            
-          </div>
-        </div>
-      </div> 
-    </div>
+    
 
     <header class="site-navbar py-4 bg-white js-sticky-header site-navbar-target" role="banner">
 
@@ -74,11 +54,11 @@ $selling = SellingAsset::register($this);
 
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="<?= Url::to(['/site/home']) ?>" class="nav-link">Home</a></li>
-                <li><a href="#products-section" class="nav-link">Products</a></li>
-                <li><a href="#testimonials-section" class="nav-link">Testimonials</a></li>
-                <li><a href="#special-section" class="nav-link">Special</a></li>
-                <li><a href="#about-section" class="nav-link">Belanja</a></li>
-                <li><a href="#blog-section" class="nav-link">Blog</a></li>
+                <li><a href="<?= (Yii::$app->request->url == Url::to(['/site/home']) ? '' : Url::to(['/site/home'])) ?>#products-section" class="nav-link">Products</a></li>
+                <li><a href="<?= (Yii::$app->request->url == Url::to(['/site/home']) ? '' : Url::to(['/site/home'])) ?>#testimonials-section" class="nav-link">Testimonials</a></li>
+                <li><a href="<?= (Yii::$app->request->url == Url::to(['/site/home']) ? '' : Url::to(['/site/home'])) ?>#special-section" class="nav-link">Special</a></li>
+                <li><a href="<?= (Yii::$app->request->url == Url::to(['/site/home']) ? '' : Url::to(['/site/home'])) ?>#belanja-section" class="nav-link">Belanja</a></li>
+                <li><a href="<?= Url::to(['/site/blog']) ?>" class="nav-link">Blog</a></li>
                 <?php
                 if(Yii::$app->user->isGuest):
                 ?>
