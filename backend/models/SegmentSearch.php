@@ -61,7 +61,7 @@ class SegmentSearch extends Segment
             'id' => $this->id,
             'seq' => $this->seq,
             'segment_id' => $this->segment_id,
-            'status' => $this->status,
+            'status' => 1,
             'created_by' => $this->created_by,
             'created_at' => $this->created_at,
             'updated_by' => $this->updated_by,

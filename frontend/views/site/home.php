@@ -5,11 +5,15 @@
 use backend\models\Segment;
 use frontend\assets\SellingAsset;
 use yii\helpers\Url;
+use yii\web\YiiAsset;
 
 $selling = SellingAsset::register($this);
 $this->title = 'Voca Beauty Store';
 $bannerCount = count($banners) - 1;
 $belanja = Segment::find()->where(['status' => 1, 'seq' => 0, 'title' => 'Cara Berbelanja'])->one();
+$whyVoca = Segment::find()->where(['status' => 1, 'seq' => 0 , 'title' => 'Kenapa Voca'])->one();
+$whyVocaComponents = Segment::find()->where(['status' => 1, 'seq' => 1, 'segment_id' => $whyVoca->id])->all();
+$promo = Segment::find()->where(['status' => 1, 'seq' => 0, 'title' => 'PROMO SPESIAL'])->one();
 ?>
 
 
@@ -107,37 +111,20 @@ $belanja = Segment::find()->where(['status' => 1, 'seq' => 0, 'title' => 'Cara B
         <div class="row mb-5">
           <div class="col-12 text-center">
             <h3 class="section-sub-title">The Reasons</h3>
-            <h2 class="section-title mb-3">Kenapa Voca</h2>
+            <h2 class="section-title mb-3"><?= $whyVoca->title ?></h2>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
+          <?php foreach ($whyVocaComponents as $whyVocaComponent): ?>
+          <div class="col-md-6 col-lg-3 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
             <div class="person text-center">
-              <img src="images/person_2.jpg" alt="Image" class="img-fluid rounded w-75 mb-3">
-              <h3>John Rooster</h3>
-              <p class="position text-muted">Co-Founder, President</p>
-              <p class="mb-4">Nisi at consequatur unde molestiae quidem provident voluptatum deleniti quo iste error eos est praesentium distinctio cupiditate tempore suscipit inventore deserunt tenetur.</p>
+              <img src="<?= Yii::$app->params['segment-images'] . $whyVocaComponent->image ?>" alt="Image" class="img-fluid rounded w-75 mb-3" style="width:240px; height:240px;">
+              <h3><?= $whyVocaComponent->title ?></h3>
+              <p class="mb-4"><?= $whyVocaComponent->content ?></p>
               
             </div>
           </div>
-          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
-            <div class="person text-center">
-              <img src="images/person_3.jpg" alt="Image" class="img-fluid rounded w-75 mb-3">
-              <h3>Tom Sharp</h3>
-              <p class="position text-muted">Co-Founder, COO</p>
-              <p class="mb-4">Nisi at consequatur unde molestiae quidem provident voluptatum deleniti quo iste error eos est praesentium distinctio cupiditate tempore suscipit inventore deserunt tenetur.</p>
-              
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="300">
-            <div class="person text-center">
-              <img src="images/person_4.jpg" alt="Image" class="img-fluid rounded w-75 mb-3">
-              <h3>Winston Hodson</h3>
-              <p class="position text-muted">Marketing</p>
-              <p class="mb-4">Nisi at consequatur unde molestiae quidem provident voluptatum deleniti quo iste error eos est praesentium distinctio cupiditate tempore suscipit inventore deserunt tenetur.</p>
-
-            </div>
-          </div>
+          <?php endforeach; ?>
         </div>
       </div>
     </div>
@@ -147,9 +134,9 @@ $belanja = Segment::find()->where(['status' => 1, 'seq' => 0, 'title' => 'Cara B
       <div class="container">
         <div class="row mb-5 justify-content-center">
           <div class="col-md-6 text-center">
-            <h3 class="section-sub-title">Popular Products</h3>
-            <h2 class="section-title mb-3">Our Products</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae nostrum natus excepturi fuga ullam accusantium vel ut eveniet aut consequatur laboriosam ipsam.</p>
+            <!-- <h3 class="section-sub-title">Popular Products</h3> -->
+            <h2 class="section-title mb-3">Apa Saja Produk Voca</h2>
+            <p>Kami menawarkan produk Voca dalam dua macam kemasan yaitu botol penuh (30 mL) dan <i>share in jar</i> (5 mL)</p>
           </div>
         </div>
         <div class="row">
@@ -159,19 +146,14 @@ $belanja = Segment::find()->where(['status' => 1, 'seq' => 0, 'title' => 'Cara B
           <div class="col-lg-4 col-md-6 mb-5">
             <div class="product-item">
               <figure>
-                <img src="<?= Yii::$app->params['product-images'] . $product->photo ?>" alt="Image" class="img-fluid">
+                <img src="<?= Yii::$app->params['product-images'] . $product->photo ?>" alt="Image" class="img-fluid" style="width:200px;height:200px;">
               </figure>
               <div class="px-4">
                 <h3><a href="#"><?= $product->name ?></a></h3>
                 <div class="mb-3">
                   <span class="meta-icons mr-3"><a href="#" class="mr-2"><span class="icon-star text-warning"></span></a><?= ($product->ratings() > 0 ? number_format($product->ratings(), 2) : 0) ?></span>
-                  <span class="meta-icons wishlist"><a href="#" class="mr-2"><span class="icon-heart"></span></a> 29</span>
                 </div>
-                <p class="mb-4"><?= $product->description ?></p>
-                <div>
-                  <a href="#" class="btn btn-black mr-1 rounded-0">Cart</a>
-                  <a href="#" class="btn btn-black btn-outline-black ml-1 rounded-0">View</a>
-                </div>
+                <!-- <p class="mb-4">< $product->description ?></p> -->
               </div>
             </div>
           </div>
@@ -222,13 +204,13 @@ $belanja = Segment::find()->where(['status' => 1, 'seq' => 0, 'title' => 'Cara B
 
         <div class="row align-items-center justify-content-center">
           <div class="col-md-7 text-center">
-            <h3 class="section-sub-title">Special Promo</h3>
-            <h3 class="section-title text-white mb-4">Summer Sale</h3>
-            <p class="mb-5 lead">Repudiandae nostrum natus excepturi fuga ullam accusantium vel ut eveniet aut consequatur laboriosam ipsam.</p>
+            <h3 class="section-sub-title">Special For You</h3>
+            <h3 class="section-title text-white mb-4"><?= $promo->title ?></h3>
+            <p class="mb-5 lead"><?= $promo->content ?></p>
             
             <div id="date-countdown" class="mb-5"></div>
 
-            <p><a href="#" class="btn btn-white btn-outline-white py-3 px-5 rounded-0 mb-lg-0 mb-2 d-block d-sm-inline-block">Shop Now</a></p>
+            <p id="promos" class="promos"><a href="<?= (Yii::$app->request->url == Url::to(['/site/index']) ? '' : Url::to(['/site/index'])) ?>#belanja-section" class="btn btn-white btn-outline-white py-3 px-5 rounded-0 mb-lg-0 mb-2 d-block d-sm-inline-block promos">Shop Now</a></p>
           </div>
         </div>
 
@@ -248,12 +230,12 @@ $belanja = Segment::find()->where(['status' => 1, 'seq' => 0, 'title' => 'Cara B
             <p><?= $belanja->content ?></p>
         </div>
         <div class="col-md-4">
-        <a href="#" target="_blank">
+        <a href="https://www.tokopedia.com/vocaofficial" target="_blank">
               <img src="<?= $selling->baseUrl ?>/img/tokopedia.png" style="width:150px;height:50px;" alt="">
               </a>
             </div>
             <div class="col-md-4">
-              <a href="#" target="_blank">
+              <a href="https://shopee.co.id/vocaofficial" target="_blank">
               <img src="<?= $selling->baseUrl ?>/img/shopee.png" style="width:150px;height:50px;" alt="">
               </a>
             </div>
