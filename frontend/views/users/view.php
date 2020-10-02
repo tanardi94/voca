@@ -42,8 +42,17 @@ $selling = SellingAsset::register($this);
                     $points = UsersPoints::find()->where(['status' => 1, 'user_id' => $data->id])->sum('points');
                     return $points;
                 }
-            ]
-        ],
+            ],
+            [
+                'label'=>'',
+                'format'=>'raw',
+                'value'=>Html::a('See Your Points History', ['points']),
+            ],
+        ]
     ]) ?>
+
+<p>
+        <?= Html::a('Edit Profile', ['update', 'id' => $model->unique_id], ['class' => 'btn btn-primary']) ?>
+    </p>
 
 </div>

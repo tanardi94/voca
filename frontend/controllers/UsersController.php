@@ -10,6 +10,7 @@ use yii\base\DynamicModel;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * UsersController implements the CRUD actions for Users model.
@@ -127,14 +128,37 @@ class UsersController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $model->scenario = 'update';
+        $files = $model->photo;
+        if ($model->load(Yii::$app->request->post())) {
+            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+            if(!empty($model->imageFile)) {
+                $fileName =  $model->name . '-' . rand(100,1000) . '-' . $model->unique_id;
+                $model->photo = $fileName . '.' . $model->imageFile->extension;
+                if($model->save(false)) {
+                    $model->imageFile->saveAs(Yii::$app->params['storage'] . '/uploads/users/' . $fileName . '.' . $model->imageFile->extension);
+                }
+            }
+            $model->save(false);
+            return $this->redirect(['view', 'id' => $model->unique_id]);
         }
 
         return $this->render('update', [
             'model' => $model,
         ]);
+    }
+
+    public function actionDelimage($id)
+    {
+        $model = ModelsUsers::findOne(['unique_id' => $id]);
+        if ($model->deleteImage()) {
+            Yii::$app->session->setFlash('success', 
+        'Your image was removed successfully. Upload another by clicking Browse below');
+        } else {
+            Yii::$app->session->setFlash('error', 
+        'Error removing image. Please try again later or contact the system admin.');
+        }
+        return $this->redirect(['update', 'id' => $model->unique_id]);
     }
 
     /**
@@ -160,7 +184,7 @@ class UsersController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = Users::findOne($id)) !== null) {
+        if (($model = ModelsUsers::findOne(['unique_id' => $id])) !== null) {
             return $model;
         }
 

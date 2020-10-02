@@ -97,9 +97,9 @@ class UsersController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $model->scenario = 'update';
+        // $model->scenario = 'update';
         $files = $model->photo;
-        if ($model->load(Yii::$app->request->post())) {
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
             if(!empty($model->imageFile)) {
                 $fileName =  $model->name . '-' . rand(100,1000) . '-' . $model->unique_id;
@@ -108,6 +108,7 @@ class UsersController extends Controller
                     $model->imageFile->saveAs(Yii::$app->params['storage'] . '/uploads/users/' . $fileName . '.' . $model->imageFile->extension);
                 }
             }
+            $model->save(false);
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
