@@ -73,7 +73,7 @@ class SegmentController extends Controller
                 $fileName =  $model->title . '-' . rand(100,1000) . '-' . uniqid(date('siHyz'), true);
                 $model->image = $fileName . '.' . $model->imageFile->extension;
                 if($model->save(false)) {
-                    $model->imageFile->saveAs('@backend/web/uploads/segment/' . $fileName . '.' . $model->imageFile->extension);
+                    $model->imageFile->saveAs(Yii::$app->params['storage'] . '/uploads/segment/' . $fileName . '.' . $model->imageFile->extension);
                 }
             }
             $model->save(false);
@@ -103,7 +103,7 @@ class SegmentController extends Controller
                 $fileName =  $model->title . '-' . rand(100,1000) . '-' . uniqid(date('siHyz'), true);
                 $model->image = $fileName . '.' . $model->imageFile->extension;
                 if($model->save(false)) {
-                    $model->imageFile->saveAs('@backend/web/uploads/segment/' . $fileName . '.' . $model->imageFile->extension);
+                    $model->imageFile->saveAs(Yii::$app->params['storage'] . '/uploads/segment/' . $fileName . '.' . $model->imageFile->extension);
                 }
             }
             $model->save(false);

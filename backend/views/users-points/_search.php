@@ -23,13 +23,21 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'status') ?>
 
-    <?= $form->field($model, 'created_at') ?>
+    <?= $form->field($model, 'created_by') ?>
 
-    <?php // echo $form->field($model, 'created_by') ?>
+    <?php // echo $form->field($model, 'created_at') ?>
+
+    <?php // echo $form->field($model, 'updated_by') ?>
 
     <?php // echo $form->field($model, 'updated_at') ?>
 
-    <?php // echo $form->field($model, 'updated_by') ?>
+    <?php // echo $form->field($model, 'source') ?>
+
+    <?php // echo $form->field($model, 'amount') ?>
+
+    <?php // echo $form->field($model, 'transaction_date') ?>
+
+    <?php // echo $form->field($model, 'notes') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

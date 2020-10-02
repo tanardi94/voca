@@ -35,6 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'content:ntext',
             'seq',
             'segment_id',
+            'attr1'
         ],
     ]) ?>
 

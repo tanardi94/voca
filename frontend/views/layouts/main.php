@@ -20,6 +20,7 @@ $selling = SellingAsset::register($this);
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode(Yii::$app->name) ?></title>
@@ -71,7 +72,8 @@ $selling = SellingAsset::register($this);
                 <span style="text-transform:uppercase"><?= Yii::$app->user->identity->username ?></span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                  <a class="nav-link dropdown-item" href="<?= Url::to(['/users/view/?id=' . Yii::$app->user->identity->id]) ?>">Account</a>
+                  <a class="nav-link dropdown-item" href="<?= Url::to(['/users/view/?id=' . Yii::$app->user->identity->unique_id]) ?>">Account</a>
+                  <a class="nav-link dropdown-item" href="<?= Url::to(['/users/changepw/?unique_id=' . Yii::$app->user->identity->unique_id]) ?>">Change Password</a>
                 <?= Html::a('Logout', ['/site/logout'], ['class' => 'nav-link dropdown-item', 'data-method' => 'post'])
                 ?>
                 </div>
@@ -93,7 +95,7 @@ $selling = SellingAsset::register($this);
 
        
         <?= $content ?>
-
+        
         <footer class="site-footer bg-white">
       <div class="container">
         <div class="row">
@@ -102,9 +104,9 @@ $selling = SellingAsset::register($this);
               <div class="col-md-4">
                 <h2 class="footer-heading mb-4">Informasi</h2>
                 <ul class="list-unstyled">
-                  <li><a href="https://shopee.co.id/vocaofficial" target="_blank">Tentang Voca Beauty Store</a></li>
-                  <li><a href="https://www.tokopedia.com/vocaofficial" target="_blank">Frequently Asked Question</a></li>
-                  <li><a href="https://wa.me/6281232999913" target="_blank">Seputar Membership</a></li>
+                  <li><a href="<?= Url::to(['site/about'])?>" target="_blank">Tentang Voca Beauty Store</a></li>
+                  <li><a href="<?= Url::to(['/home/faq']) ?>">Frequently Asked Question</a></li>
+                  <li><a href="<?= Url::to(['site/login'])?>" target="_blank">Seputar Membership</a></li>
                 </ul>
               </div>
               <div class="col-md-4">
@@ -112,7 +114,7 @@ $selling = SellingAsset::register($this);
                 <ul class="list-unstyled">
                   <li><a href="https://shopee.co.id/vocaofficial" target="_blank">Shopee</a></li>
                   <li><a href="https://www.tokopedia.com/vocaofficial" target="_blank">Tokopedia</a></li>
-                  <li><a href="https://wa.me/6281232999913" target="_blank">WhatsApp</a></li>
+                  <li><a href="https://api.whatsapp.com/send?phone=6281232999913&text=Halo%20Kak, saya%20mau%20memesan%20produk%20VOCA." target="_blank">WhatsApp</a></li>
                 </ul>
               </div>
               <div class="col-md-4">
@@ -120,7 +122,9 @@ $selling = SellingAsset::register($this);
                 <ul class="list-unstyled">
                 <li><span class="icon-whatsapp mr-3"></span>(+62) 812 - 3299 - 9913</li>
                 <li>
+                <a href="https://www.instagram.com/vocabeautystore/" target="_blank">
                   <span class="icon-instagram mr-3"></span>Voca Beauty Store
+                  </a>
                 </li>
                 <li>
                   <span class="icon-envelope mr-3"></span>officialvoca@gmail.com

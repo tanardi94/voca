@@ -30,14 +30,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'title',
             'description:ntext',
-            [
-                'attribute' => 'status',
-                'value' => function ($data) {
-                    $status = ['Not Active', 'Active'];
-                    return $status[$data->status];
-                },
-                'filter' => $status,
-            ],
             // 'created_by',
             //'created_at',
             //'updated_by',

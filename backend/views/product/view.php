@@ -37,6 +37,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => Yii::getAlias('@web/uploads/product/') . $model->photo,
                 'format' => ['image',['width'=>'200','height'=>'200']]
             ],
+            [
+                'attribute' => 'photo_2',
+                'value' => Yii::getAlias('@web/uploads/product/') . $model->photo_2,
+                'format' => ['image',['width'=>'200','height'=>'200']]
+            ],
+            [
+                'attribute' => 'photo_3',
+                'value' => Yii::getAlias('@web/uploads/product/') . $model->photo_3,
+                'format' => ['image',['width'=>'200','height'=>'200']]
+            ],
             'description:ntext',
         ],
     ]) ?>

@@ -2,15 +2,36 @@
 
 /* @var $this yii\web\View */
 
+use frontend\assets\SellingAsset;
 use yii\helpers\Html;
 
-$this->title = 'About';
+$selling = SellingAsset::register($this);
+$this->title = $model->title;
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-about">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>This is the About page. You may modify the following file to customize its content:</p>
 
-    <code><?= __FILE__ ?></code>
+<div class="site-about"><br>
+<br>
+<br>
+<br><br>
+<div class="container">
+<div class="row mt-5 mb-5">
+          <div class="col-12 text-center">
+            <h3 class="section-sub-title">About Us</h3>
+            <h2 class="section-title mb-3"><?= $model->title ?></h2>
+          </div>
+        </div>
+    <div class="row">
+    <div class="col-lg-3">&nbsp;</div>
+    <div class="col-lg-6">
+
+        <?= $model->content ?>
+    </div>
+    <div class="col-lg-3"></div>
+    </div>
+
+    </div>
+
+</div>
 </div>

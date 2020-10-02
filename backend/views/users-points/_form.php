@@ -16,6 +16,21 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'points')->textInput() ?>
 
+    <?= $form->field($model, 'source')->dropDownList([
+        'Tokopedia', 'Shopee', 'WhatsApp'
+    ]) ?>
+
+    <?= $form->field($model, 'amount')->textInput() ?>
+
+    <?= $form->field($model, 'transaction_date')->widget('dosamigos\datepicker\DatePicker', [
+        'clientOptions' => [
+            'autoclose' => true,
+            'format' => 'yyyy-mm-dd'
+        ]
+    ]) ?>
+
+    <?= $form->field($model, 'notes')->textarea(['rows' => 6]) ?>
+
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>

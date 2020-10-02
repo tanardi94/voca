@@ -9,9 +9,10 @@ use yii\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Users Points';
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = $this->title;$shops = ['Tokopedia', 'Shopee', 'WhatsApp'];
+$shops = ['Tokopedia', 'Shopee', 'WhatsApp'];
 ?>
-<div class="users-points-index box-body table-responsive">
+<div class="users-points-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -29,29 +30,32 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            // 'id',
+            'id',
             'user_id',
             [
-                'label' => 'Name',
+                'label' => 'Nama',
                 'attribute' => 'user',
                 'value' => 'user.name'
-            ], 
+            ],
+            // 'status',
+            // 'created_by',
+            //'created_at',
+            //'updated_by',
+            //'updated_at',
             [
-                'label' => 'Points',
+                'attribute' => 'source',
+                'value' => function ($data) {
+                    $shops = ['Tokopedia', 'Shopee', 'WhatsApp'];
+                    return $shops[$data->source];
+                },
+                'filter' => $shops
+            ],
+            [
                 'attribute' => 'points',
                 'footer' => UsersPoints::getTotal($dataProvider->models, 'points')
             ],
-            // 'status',
-            // 'created_at',
-            //'created_by',
-            //'updated_at',
-            //'updated_by',
 
             ['class' => 'yii\grid\ActionColumn'],
-
-            
-        ],
-    ]); ?>
-
-
-</div>
+        ]
+    ])
+            ?>

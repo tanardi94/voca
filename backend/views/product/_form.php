@@ -47,6 +47,58 @@ use yii\helpers\Url;
         );
         echo '</div>';
     }
+
+    if (empty($model->photo_2)) {
+        echo $form->field($model, 'imageFile2')->widget(FileInput::class, [
+            'options' => ['accept' => 'image/*'],
+        ]);
+    }
+    else {
+        echo '<div class="form-group">
+        <h5><b>Photo</b></h5>';
+        echo Html::img(Yii::getAlias('@web/uploads/product/') . $model->photo_2, [
+            'alt'=>Yii::t('app', 'Product for ') . $model->name,
+            'title'=>Yii::t('app', 'Click remove button below to remove this image'),
+            'class'=>'file-preview-image',
+            'width' => 200,
+            'height' => 200
+            // add a CSS class to make your image styling consistent
+        ]);
+        echo '</div>
+        <div class="form-group">';
+        echo Html::a(
+            Yii::t('app', 'Change Image'), 
+            Url::to(['/product/delimage2', 'id'=>$model->id]),
+            ['class' => 'btn btn-primary']
+        );
+        echo '</div>';
+    }
+
+    if (empty($model->photo_3)) {
+        echo $form->field($model, 'imageFile3')->widget(FileInput::class, [
+            'options' => ['accept' => 'image/*'],
+        ]);
+    }
+    else {
+        echo '<div class="form-group">
+        <h5><b>Photo</b></h5>';
+        echo Html::img(Yii::getAlias('@web/uploads/product/') . $model->photo_3, [
+            'alt'=>Yii::t('app', 'Product for ') . $model->name,
+            'title'=>Yii::t('app', 'Click remove button below to remove this image'),
+            'class'=>'file-preview-image',
+            'width' => 200,
+            'height' => 200
+            // add a CSS class to make your image styling consistent
+        ]);
+        echo '</div>
+        <div class="form-group">';
+        echo Html::a(
+            Yii::t('app', 'Change Image'), 
+            Url::to(['/product/delimage3', 'id'=>$model->id]),
+            ['class' => 'btn btn-primary']
+        );
+        echo '</div>';
+    }
     ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>

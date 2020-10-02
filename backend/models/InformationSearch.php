@@ -18,7 +18,7 @@ class InformationSearch extends Information
     {
         return [
             [['id', 'status', 'created_by', 'updated_by'], 'integer'],
-            [['title', 'description', 'created_at', 'updated_at'], 'safe'],
+            [['question', 'answer', 'created_at', 'updated_at', 'description'], 'safe'],
         ];
     }
 
@@ -59,14 +59,15 @@ class InformationSearch extends Information
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'status' => $this->status,
-            'created_at' => $this->created_at,
+            'status' => 1,
             'created_by' => $this->created_by,
-            'updated_at' => $this->updated_at,
+            'created_at' => $this->created_at,
             'updated_by' => $this->updated_by,
+            'updated_at' => $this->updated_at,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title])
+        $query->andFilterWhere(['like', 'question', $this->question])
+            ->andFilterWhere(['like', 'answer', $this->answer])
             ->andFilterWhere(['like', 'description', $this->description]);
 
         return $dataProvider;

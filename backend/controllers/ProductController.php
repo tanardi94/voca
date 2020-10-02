@@ -70,11 +70,25 @@ class ProductController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             $model->unique_id = uniqid(date('siHyz'), true);
             $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+            $model->imageFile2 = UploadedFile::getInstance($model, 'imageFile2');
+            $model->imageFile3 = UploadedFile::getInstance($model, 'imageFile3');
+            $fileName =  $model->name . '-' . rand(100,1000) . '-' . $model->unique_id;
             if(!empty($model->imageFile)) {
-                $fileName =  $model->name . '-' . rand(100,1000) . '-' . $model->unique_id;
                 $model->photo = $fileName . '.' . $model->imageFile->extension;
                 if($model->save(false)) {
-                    $model->imageFile->saveAs('@backend/web/uploads/product/' . $fileName . '.' . $model->imageFile->extension);
+                    $model->imageFile->saveAs(Yii::$app->params['storage'] . '/uploads/product/' . $fileName . '.' . $model->imageFile->extension);
+                }
+            }
+            if(!empty($model->imageFile2)) {
+                $model->photo_2 = $fileName . '-2.' . $model->imageFile2->extension;
+                if($model->save(false)) {
+                    $model->imageFile2->saveAs(Yii::$app->params['storage'] . '/uploads/product/' . $model->photo_2);
+                }
+            }
+            if(!empty($model->imageFile3)) {
+                $model->photo_3 = $fileName . '-3.' . $model->imageFile3->extension;
+                if($model->save(false)) {
+                    $model->imageFile3->saveAs(Yii::$app->params['storage'] . '/uploads/product/' . $model->photo_3);
                 }
             }
             $model->save(false);
@@ -98,12 +112,27 @@ class ProductController extends Controller
         $model->scenario = 'update';
         $files = $model->photo;
         if ($model->load(Yii::$app->request->post())) {
+            $model->unique_id = uniqid(date('siHyz'), true);
             $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+            $model->imageFile2 = UploadedFile::getInstance($model, 'imageFile2');
+            $model->imageFile3 = UploadedFile::getInstance($model, 'imageFile3');
+            $fileName =  $model->name . '-' . rand(100,1000) . '-' . $model->unique_id;
             if(!empty($model->imageFile)) {
-                $fileName =  $model->name . '-' . rand(100,1000) . '-' . $model->unique_id;
                 $model->photo = $fileName . '.' . $model->imageFile->extension;
                 if($model->save(false)) {
-                    $model->imageFile->saveAs('@backend/web/uploads/product/' . $fileName . '.' . $model->imageFile->extension);
+                    $model->imageFile->saveAs(Yii::$app->params['storage'] . '/uploads/product/' . $fileName . '.' . $model->imageFile->extension);
+                }
+            }
+            if(!empty($model->imageFile2)) {
+                $model->photo_2 = $fileName . '-2.' . $model->imageFile2->extension;
+                if($model->save(false)) {
+                    $model->imageFile2->saveAs(Yii::$app->params['storage'] . '/uploads/product/' . $model->photo_2);
+                }
+            }
+            if(!empty($model->imageFile3)) {
+                $model->photo_3 = $fileName . '-3.' . $model->imageFile3->extension;
+                if($model->save(false)) {
+                    $model->imageFile3->saveAs(Yii::$app->params['storage'] . '/uploads/product/' . $model->photo_3);
                 }
             }
             $model->save(false);
@@ -135,6 +164,32 @@ class ProductController extends Controller
     {
         $model = Product::findOne($id);
         if ($model->deleteImage()) {
+            Yii::$app->session->setFlash('success', 
+        'Your image was removed successfully. Upload another by clicking Browse below');
+        } else {
+            Yii::$app->session->setFlash('error', 
+        'Error removing image. Please try again later or contact the system admin.');
+        }
+        return $this->redirect(['update', 'id' => $model->id]);
+    }
+
+    public function actionDelimage2($id)
+    {
+        $model = Product::findOne($id);
+        if ($model->deleteImage2()) {
+            Yii::$app->session->setFlash('success', 
+        'Your image was removed successfully. Upload another by clicking Browse below');
+        } else {
+            Yii::$app->session->setFlash('error', 
+        'Error removing image. Please try again later or contact the system admin.');
+        }
+        return $this->redirect(['update', 'id' => $model->id]);
+    }
+
+    public function actionDelimage3($id)
+    {
+        $model = Product::findOne($id);
+        if ($model->deleteImage3()) {
             Yii::$app->session->setFlash('success', 
         'Your image was removed successfully. Upload another by clicking Browse below');
         } else {

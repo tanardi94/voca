@@ -9,7 +9,7 @@ $this->title = 'Create Users Points';
 $this->params['breadcrumbs'][] = ['label' => 'Users Points', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="users-points-create box-body table-responsive">
+<div class="users-points-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

@@ -58,7 +58,7 @@ class Segment extends \backend\models\CustomActiveRecord
         return [
             'id' => 'ID',
             'title' => 'Title',
-            'attr1' => 'Attr1',
+            'attr1' => 'Tanggal',
             'content' => 'Content',
             'seq' => 'Type',
             'image' => 'Image',
@@ -75,7 +75,7 @@ class Segment extends \backend\models\CustomActiveRecord
 
     public function deleteImage()
     {
-        $image = Yii::getAlias('@backend/web/uploads/segment/') . $this->image;
+        $image = Yii::getAlias(Yii::$app->params['storage'] . '/uploads/segment/') . $this->image;
         if(unlink($image)) {
             $this->image = null;
             $this->save();

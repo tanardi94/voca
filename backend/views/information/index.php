@@ -9,9 +9,8 @@ use yii\grid\GridView;
 
 $this->title = 'Informations';
 $this->params['breadcrumbs'][] = $this->title;
-$status = ['0' => 'Not Active', '1' => 'Active'];
 ?>
-<div class="information-index box-body table-responsive">
+<div class="information-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -28,19 +27,12 @@ $status = ['0' => 'Not Active', '1' => 'Active'];
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'title',
-            'description:ntext',
-            [
-                'attribute' => 'status',
-                'value' => function($data) {
-                    $status = ['0' => 'Not Active', '1' => 'Active'];
-                    return $status[$data->status];
-                },
-                'filter' => $status
-            ],
-            //'created_by',
-            //'updated_at',
+            'question:ntext',
+            'answer:ntext',
+            //'created_at',
             //'updated_by',
+            //'updated_at',
+            //'description:ntext',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

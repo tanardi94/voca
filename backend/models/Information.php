@@ -1,7 +1,6 @@
 <?php
 
 namespace backend\models;
-use backend\models\CustomActiveRecord;
 
 use Yii;
 
@@ -9,15 +8,16 @@ use Yii;
  * This is the model class for table "information".
  *
  * @property int $id
- * @property string $title
- * @property string $description
+ * @property string $question
+ * @property string $answer
  * @property int $status
- * @property string $created_at
  * @property int $created_by
- * @property string $updated_at
+ * @property string $created_at
  * @property int $updated_by
+ * @property string $updated_at
+ * @property string|null $description
  */
-class Information extends CustomActiveRecord
+class Information extends \backend\models\CustomActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -33,11 +33,10 @@ class Information extends CustomActiveRecord
     public function rules()
     {
         return [
-            [['title', 'description'], 'required'],
-            [['description'], 'string'],
+            [['question', 'answer'], 'required'],
+            [['question', 'answer', 'description'], 'string'],
             [['status', 'created_by', 'updated_by'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
-            [['title'], 'string', 'max' => 100],
         ];
     }
 
@@ -48,13 +47,14 @@ class Information extends CustomActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'description' => 'Description',
+            'question' => 'Question',
+            'answer' => 'Answer',
             'status' => 'Status',
-            'created_at' => 'Created At',
             'created_by' => 'Created By',
-            'updated_at' => 'Updated At',
+            'created_at' => 'Created At',
             'updated_by' => 'Updated By',
+            'updated_at' => 'Updated At',
+            'description' => 'Description',
         ];
     }
 }

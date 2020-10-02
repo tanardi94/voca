@@ -75,7 +75,7 @@ class UsersController extends Controller
                 $fileName =  $model->name . '-' . rand(100,1000) . '-' . $model->unique_id;
                 $model->photo = $fileName . '.' . $model->imageFile->extension;
                 if($model->save(false)) {
-                    $model->imageFile->saveAs('@backend/web/uploads/users/' . $fileName . '.' . $model->imageFile->extension);
+                    $model->imageFile->saveAs(Yii::$app->params['storage'] . '/uploads/users/' . $fileName . '.' . $model->imageFile->extension);
                 }
             }
             $model->save(false);
@@ -105,7 +105,7 @@ class UsersController extends Controller
                 $fileName =  $model->name . '-' . rand(100,1000) . '-' . $model->unique_id;
                 $model->photo = $fileName . '.' . $model->imageFile->extension;
                 if($model->save(false)) {
-                    $model->imageFile->saveAs('@backend/web/uploads/users/' . $fileName . '.' . $model->imageFile->extension);
+                    $model->imageFile->saveAs(Yii::$app->params['storage'] . '/uploads/users/' . $fileName . '.' . $model->imageFile->extension);
                 }
             }
             return $this->redirect(['view', 'id' => $model->id]);

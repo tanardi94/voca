@@ -31,14 +31,6 @@ $status = array('Not Active', 'Active');
             'title',
             'content:ntext',
             [
-                'attribute' => 'status',
-                'value' => function($data) {
-                    $status = array('Not Active', 'Active');
-                    return $status[$data->status];
-                },
-                'filter' => $status
-            ],
-            [
                 'label' => 'Posting Date',
                 'attribute' => 'created_at',
                 'value' => function($data) {

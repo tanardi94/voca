@@ -21,6 +21,12 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'seq')->textInput(['type' => 'number']) ?>
 
     <?= $form->field($model, 'segment_id')->textInput() ?>
+    <?= $form->field($model, 'attr1')->widget('dosamigos\datepicker\DatePicker', [
+        'clientOptions' => [
+            'autoclose' => true,
+            'format' => 'yyyy-mm-dd'
+        ]
+    ]) ?>
 
     <?php
 

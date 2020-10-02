@@ -14,12 +14,13 @@ class UsersPointsSearch extends UsersPoints
     /**
      * {@inheritdoc}
      */
+
     public $user;
     public function rules()
     {
         return [
-            [['id', 'user_id', 'points', 'status', 'created_by', 'updated_by'], 'integer'],
-            [['created_at', 'updated_at', 'user'], 'safe'],
+            [['id', 'user_id', 'points', 'status', 'created_by', 'updated_by', 'source', 'amount'], 'integer'],
+            [['created_at', 'updated_at', 'transaction_date', 'notes', 'user'], 'safe'],
         ];
     }
 
@@ -49,7 +50,6 @@ class UsersPointsSearch extends UsersPoints
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
-
         $dataProvider->sort->attributes['user'] = [
             'asc'  => ['users.name' => SORT_ASC],
             'desc' => ['users.name' => SORT_DESC],
@@ -69,13 +69,18 @@ class UsersPointsSearch extends UsersPoints
             'user_id' => $this->user_id,
             'points' => $this->points,
             'users_points.status' => 1,
-            'created_at' => $this->created_at,
             'created_by' => $this->created_by,
-            'updated_at' => $this->updated_at,
+            'created_at' => $this->created_at,
             'updated_by' => $this->updated_by,
+            'updated_at' => $this->updated_at,
+            'source' => $this->source,
+            'amount' => $this->amount,
+            'transaction_date' => $this->transaction_date,
         ]);
-        $query->andFilterWhere(['like', 'users.name', $this->user]);
 
+        $query->andFilterWhere(['like', 'notes', $this->notes]);
+
+        $query->andFilterWhere(['like', 'users.name', $this->user]);
         return $dataProvider;
     }
 }

@@ -9,43 +9,31 @@ $this->title = Yii::$app->name;
     <div class="jumbotron">
         <h1>Congratulations!</h1>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
+        <p class="lead">You have successfully login to Voca Beauty Store Admin Website.</p>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
     </div>
 
     <div class="body-content">
 
         <div class="row">
             <div class="col-lg-4">
-                <h2>Heading</h2>
+                <h2>Product</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+                <p>Anda bisa membuat produk dan diharapkan untuk melengkapi semua form yang ada saat membuat produk dalam tab folder. Karena semua atribut tersebut diperlukan agar tampilan pada website utama tidak rusak.
+                </p>
             </div>
             <div class="col-lg-4">
-                <h2>Heading</h2>
+                <h2>Segment</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
+                <p>Pada bagian tab segment harap untuk tidak menambah segmen baru karena tidak akan berpengaruh pada website utama. Selain itu juga dilarang untuk mengganti title yang telah disediakan developer karena itu sangat signifikan untuk website utama agar tidak terjadi error yang tidak diinginkan. Anda bisa mengedit segmen yang anda ingin edit di website utama. Title segmen sudah disesuaikan untuk segmen tertentu pada website utama</p>
             </div>
             <div class="col-lg-4">
-                <h2>Heading</h2>
+                <h2>Information dan Blog</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                <p>Tab Information digunakan untuk mengatur FAQ pada website utama, sedangkan Blog digunakan untuk mengatur Blog pada website utama. Pada bagian blog, anda bisa mengatur menggunakan fitur WYSIWYG</p>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+                <p><a class="btn btn-default" href="http://vocabeautystore.com/site/blog" target="_blank">Preview Blog &raquo;</a></p>
+                <p><a class="btn btn-default" href="http://vocabeautystore.com/home/faq" target="_blank">Preview FAQ &raquo;</a></p>
             </div>
         </div>
 

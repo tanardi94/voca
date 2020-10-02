@@ -24,12 +24,12 @@ $this->title = 'Voca Beauty Store';
             <?php foreach ($blogs as $blog): ?>
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
             <div class="h-entry">
-              <a href="#" class="text-black"><?= $blog->title ?></a></h2>
+              <h2><strong><?= $blog->title ?></strong></h2>
               <div class="meta mb-4"><?= date('F d Y', strtotime($blog->created_at)) ?><span class="mx-2"></span></div>
               <?= $blog->content ?>
               <?php
               if(strlen($blog->content) > 100): ?>
-              <p><a href="#">Continue Reading...</a></p>
+              <p><a href="<?= Url::to(['site/view-blog?id=' . $blog->id]) ?>">Continue Reading...</a></p>
               <?php else: ?>
                 <p></p>
               <?php endif; ?>

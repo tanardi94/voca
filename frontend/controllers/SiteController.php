@@ -6,6 +6,7 @@ use backend\models\Blogs;
 use backend\models\Information;
 use backend\models\Product;
 use backend\models\ProductReview;
+use backend\models\Segment;
 use backend\models\UsersPoints;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
@@ -85,6 +86,7 @@ class SiteController extends Controller
         $infos = Information::findAll(['status' => 1]);
         $blogs = Blogs::findAll(['status' => 1]);
         $points = UsersPoints::findAll(['status' => 1]);
+        $featuredProducts = Product::find()->where(['status' => 1])->asArray()->all();
         $banners = Banners::findAll(['status' => 1]);
 
         return $this->render('home', [
@@ -93,6 +95,7 @@ class SiteController extends Controller
             'infos' => $infos,
             'blogs' => $blogs,
             'points' => $points,
+            'featuredProducts' => $featuredProducts,
             'banners' => $banners
         ]);
     }
@@ -100,6 +103,7 @@ class SiteController extends Controller
     public function actionHome()
     {
         $products = Product::findAll(['status' => 1]);
+        $featuredProducts = Product::find()->where(['status' => 1])->toArray();
         $reviews = ProductReview::findAll(['status' => 1]);
         $infos = Information::findAll(['status' => 1]);
         $blogs = Blogs::findAll(['status' => 1]);
@@ -112,7 +116,8 @@ class SiteController extends Controller
             'infos' => $infos,
             'blogs' => $blogs,
             'points' => $points,
-            'banners' => $banners
+            'banners' => $banners,
+            'featuredProducts' => $featuredProducts
         ]);
     }
 
@@ -122,6 +127,14 @@ class SiteController extends Controller
 
         return $this->render('blog', [
             'blogs' => $blogs
+        ]);
+    }
+
+    public function actionViewBlog($id)
+    {
+        $blog = Blogs::findOne(['status' => 1, 'id' => $id]);
+        return $this->render('viewBlog', [
+            'blog' => $blog
         ]);
     }
 
@@ -190,7 +203,10 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        return $this->render('about');
+        $model = Segment::findOne(['status' => 1, 'title' => 'Tentang Voca']);
+        return $this->render('about', [
+            'model' => $model
+        ]);
     }
 
     /**

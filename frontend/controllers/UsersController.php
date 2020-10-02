@@ -2,9 +2,11 @@
 
 namespace frontend\controllers;
 
+use backend\models\Users as ModelsUsers;
 use Yii;
 use frontend\models\Users;
 use frontend\models\UsersSearch;
+use yii\base\DynamicModel;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -52,8 +54,9 @@ class UsersController extends Controller
      */
     public function actionView($id)
     {
+        $model = ModelsUsers::findOne(['status' => 1, 'unique_id' => $id]);
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
         ]);
     }
 
@@ -72,6 +75,45 @@ class UsersController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+        ]);
+    }
+
+    public function actionChangepw($unique_id)
+    {
+        $additionalModel = new DynamicModel([
+            'old_password', 'new_password', 'another_new_password'
+        ]);
+        $additionalModel->addRule(['old_password', 'new_password', 'another_new_password'], 'required')->addRule(
+            ['old_password', 'new_password', 'another_new_password'], 'string'
+        );
+        $model = ModelsUsers::findOne(['status' => 1, 'unique_id' => $unique_id]);
+        if($additionalModel->load(Yii::$app->request->post()) && $additionalModel->validate()) {
+            if($model->validatePassword($additionalModel->old_password)) {
+                if($additionalModel->new_password == $additionalModel->another_new_password) {
+                    $model->setPassword($additionalModel->new_password);
+                    if($model->validatePassword($additionalModel->new_password)) {
+                        Yii::$app->session->setFlash('success', 
+                        'Password anda berhasil diubah');
+                    } else {
+                        Yii::$app->session->setFlash('error', 
+                        'Mohon maaf telah terjadi kesalahan, silakan mencoba untuk ubah password lagi');   
+                    }
+                    // return $this->redirect(['view', 'id' => $model->unique_id]);
+                } else {
+                    Yii::$app->session->setFlash('error', 
+                    'Password baru dengan verifikasi tidak sama');  
+                }
+            } else {
+                
+                Yii::$app->session->setFlash('error', 
+                'Password yang anda masukkan salah');   
+            }
+            return $this->refresh();
+            // return $this->redirect(['view', 'id' => $model->unique_id]);
+        }
+        return $this->render('changepw', [
+            'model' => $model,
+            'additionalModel' => $additionalModel
         ]);
     }
 

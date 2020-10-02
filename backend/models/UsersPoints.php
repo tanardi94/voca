@@ -1,7 +1,7 @@
 <?php
 
 namespace backend\models;
-use backend\models\CustomActiveRecord;
+
 use Yii;
 
 /**
@@ -11,19 +11,22 @@ use Yii;
  * @property int $user_id
  * @property int $points
  * @property int $status
- * @property string $created_at
  * @property int $created_by
- * @property string $updated_at
+ * @property string $created_at
  * @property int $updated_by
+ * @property string $updated_at
+ * @property int|null $source
+ * @property int $amount
+ * @property string $transaction_date
+ * @property string|null $notes
  *
  * @property Users $user
  */
-class UsersPoints extends CustomActiveRecord
+class UsersPoints extends \backend\models\CustomActiveRecord
 {
     /**
      * {@inheritdoc}
      */
-    
     public static function tableName()
     {
         return 'users_points';
@@ -35,9 +38,10 @@ class UsersPoints extends CustomActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'points'], 'required'],
-            [['user_id', 'points', 'status', 'created_by', 'updated_by'], 'integer'],
-            [['created_at', 'updated_at'], 'safe'],
+            [['user_id', 'points', 'amount'], 'required'],
+            [['user_id', 'points', 'status', 'created_by', 'updated_by', 'source', 'amount'], 'integer'],
+            [['created_at', 'updated_at', 'transaction_date'], 'safe'],
+            [['notes'], 'string'],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
@@ -50,12 +54,16 @@ class UsersPoints extends CustomActiveRecord
         return [
             'id' => 'ID',
             'user_id' => 'User ID',
-            'points' => 'Points',
+            'points' => 'Jumlah Poin',
             'status' => 'Status',
-            'created_at' => 'Created At',
             'created_by' => 'Created By',
-            'updated_at' => 'Updated At',
+            'created_at' => 'Created At',
             'updated_by' => 'Updated By',
+            'updated_at' => 'Updated At',
+            'source' => 'Tempat Beli',
+            'amount' => 'Dalam Rupiah',
+            'transaction_date' => 'Tanggal Transaksi',
+            'notes' => 'Keterangan',
         ];
     }
 
@@ -67,11 +75,6 @@ class UsersPoints extends CustomActiveRecord
     public function getUser()
     {
         return $this->hasOne(Users::className(), ['id' => 'user_id']);
-    }
-
-    public function getName()
-    {
-        return $this->user->name;
     }
 
     public static function getTotal($provider, $fieldName) {

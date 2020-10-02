@@ -981,6 +981,30 @@ h1, h2, h3, h4, h5,
   padding: 0;
   margin: 0; }
 
+.btn-voca {
+  background-color: #239ba6;
+  color: white;
+}
+
+.floats {
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#25d366;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  font-size:30px;
+	box-shadow: 2px 2px 3px #999;
+  z-index:100;
+}
+
+.my-floats {
+	margin-top:16px;
+}
+
 .block-25 ul li a .image {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 90px;
@@ -1012,15 +1036,15 @@ h1, h2, h3, h4, h5,
 .block-25 ul li a:hover .text .heading {
   color: #fff; }
 
-#date-countdown .countdown-block {
+#date-countdowns .countdown-block {
   color: #b3b3b3; }
 
-#date-countdown .label {
+#date-countdowns .label {
   font-size: 40px;
   color: #46ddb0;
   display: block; }
 
-#date-countdown .countdown-block {
+#date-countdowns .countdown-block {
   background: #fff;
   padding: 10px 20px;
   margin: 10px;

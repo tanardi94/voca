@@ -20,4 +20,12 @@ class HomeController extends \yii\web\Controller
         ]);
     }
 
+    public function actionFaq()
+    {
+        $model = Information::findAll(['status' => 1]);
+        return $this->render('faq', [
+            'model' => $model
+        ]);
+    }
+
 }

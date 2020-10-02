@@ -64,7 +64,7 @@ class Banners extends \backend\models\CustomActiveRecord
 
     public function deleteImage()
     {
-        $images = Yii::getAlias('@backend/web/uploads/banner/') . $this->image;
+        $images = Yii::getAlias(Yii::$app->params['storage'] . '/uploads/banner/') . $this->image;
         if(unlink($images)) {
             $this->image = null;
             $this->save();

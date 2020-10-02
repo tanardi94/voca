@@ -18,7 +18,7 @@ class ProductSearch extends Product
     {
         return [
             [['id', 'price', 'status', 'created_by', 'updated_by'], 'integer'],
-            [['unique_id', 'name', 'photo', 'description', 'created_at', 'updated_at'], 'safe'],
+            [['unique_id', 'name', 'photo', 'photo_2', 'photo_3', 'description', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 

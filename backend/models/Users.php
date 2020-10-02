@@ -37,7 +37,6 @@ class Users extends CustomActiveRecord
      * {@inheritdoc}
      */
     public $imageFile;
-    const IMAGE_PLACEHOLDER = '@backend/web/uploads/product';
     public static function tableName()
     {
         return 'users';
@@ -151,7 +150,8 @@ class Users extends CustomActiveRecord
     {                
         $hash = $this->hashSSHA($password);
         $this->encrypted_password = $hash["encrypted"]; // encrypted password
-        $this->salt = $hash["salt"]; // salt        
+        $this->salt = $hash["salt"];
+        $this->save(); // salt        
     }
 
     public function hashSSHA($password) {
@@ -180,7 +180,7 @@ class Users extends CustomActiveRecord
 
     public function deleteImage()
     {
-        $image = Yii::getAlias('@backend/web/uploads/users/') . $this->photo;
+        $image = Yii::getAlias(Yii::$app->params['storage'] . '/uploads/users/') . $this->photo;
         if(unlink($image)) {
             $this->photo = null;
             $this->save();
