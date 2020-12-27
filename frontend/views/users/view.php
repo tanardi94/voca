@@ -24,7 +24,7 @@ $selling = SellingAsset::register($this);
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'username',
+            // 'username',
             'name',
             'email:email',
             [
@@ -35,7 +35,12 @@ $selling = SellingAsset::register($this);
             'gender',
             'phone',
             'address',
-            'birth_date',
+            [
+                'attribute' => 'birth_date',
+                'value' => function ($data) {
+                    return date("F d Y", strtotime($data->birth_date));
+                }
+            ],
             [
                 'label' => 'My Points',
                 'value' => function ($data) {
@@ -46,7 +51,7 @@ $selling = SellingAsset::register($this);
             [
                 'label'=>'',
                 'format'=>'raw',
-                'value'=>Html::a('See Your Points History', ['points']),
+                'value'=>Html::a('See Your Points History', ['/users-points']),
             ],
         ]
     ]) ?>

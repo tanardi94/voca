@@ -1,10 +1,10 @@
 <?php
 
-namespace backend\controllers;
+namespace frontend\controllers;
 
 use Yii;
 use backend\models\UsersPoints;
-use backend\models\UsersPointsSearch;
+use frontend\models\UsersPointsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -66,14 +66,7 @@ class UsersPointsController extends Controller
     {
         $model = new UsersPoints();
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            $points = UsersPoints::find()->where(['status' => 1, 'user_id' => $model->user_id])->sum('points');
-            if($points + $model->points >= 0) {
-                $model->save();
-            } else {
-                Yii::$app->session->setFlash('failed', 
-                'Poin anda tidak cukup');
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -94,13 +87,6 @@ class UsersPointsController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $points = UsersPoints::find()->where(['status' => 1, 'user_id' => $model->user_id])->sum('points');
-            if($points + $model->points >= 0) {
-                $model->save();
-            } else {
-                Yii::$app->session->setFlash('failed', 
-                'Poin anda tidak cukup');
-            }
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -118,9 +104,7 @@ class UsersPointsController extends Controller
      */
     public function actionDelete($id)
     {
-        $model = $this->findModel($id);
-        $model->status = 0;
-        $model->save();
+        $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }

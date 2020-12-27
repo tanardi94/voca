@@ -62,7 +62,7 @@ $selling = SellingAsset::register($this);
                 <?php
                 if(Yii::$app->user->isGuest):
                 ?>
-                <li><a href="<?= Url::to(['/site/login']) ?>" class="nav-link">Membership</a></li>
+                <li><a href="<?= Url::to(['/site/login']) ?>" class="nav-link"><strong>AKUN</strong></a></li>
                 <?php
                 else:
                 ?>
@@ -120,7 +120,7 @@ $selling = SellingAsset::register($this);
               <div class="col-md-4">
                 <h2 class="footer-heading mb-4">Follow Us</h2>
                 <ul class="list-unstyled">
-                <li><span class="icon-whatsapp mr-3"></span>(+62) 812 - 3299 - 9913</li>
+                <li><span class="icon-whatsapp mr-3"></span>(+62) 818 - 596 - 813</li>
                 <li>
                 <a href="https://www.instagram.com/vocabeautystore/" target="_blank">
                   <span class="icon-instagram mr-3"></span>Voca Beauty Store

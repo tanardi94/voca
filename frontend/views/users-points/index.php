@@ -1,24 +1,30 @@
 <?php
 
 use backend\models\UsersPoints;
+use frontend\assets\SellingAsset;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\UsersPointsSearch */
+/* @var $searchModel frontend\models\UsersPointsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-
+$selling = SellingAsset::register($this);
 $this->title = 'Users Points';
 $this->params['breadcrumbs'][] = $this->title;
 $shops = ['Tokopedia', 'Shopee', 'WhatsApp'];
 ?>
+<div class="container"><br>
+<br>
+<br>
+<br>
+<br>
 <div class="users-points-index box-body table-responsive">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <!-- <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a('Create Users Points', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    </p> -->
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
@@ -30,13 +36,6 @@ $shops = ['Tokopedia', 'Shopee', 'WhatsApp'];
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'user_id',
-            [
-                'label' => 'Nama',
-                'attribute' => 'user',
-                'value' => 'user.name'
-            ],
             [
                 'attribute' => 'source',
                 'value' => function ($data) {
@@ -50,25 +49,33 @@ $shops = ['Tokopedia', 'Shopee', 'WhatsApp'];
                 'attribute' => 'transaction_date',
                 'value' => function ($data) {
                     return date("d F Y", strtotime($data->transaction_date));
-                },
+                }
             ],
-            
+
             'amount',
-            // 'status',
-            // 'created_by',
-            //'created_at',
-            //'updated_by',
-            //'updated_at',
-            
-            
-            
+            // 'id',
+            // 'user_id',
             [
                 'attribute' => 'points',
                 'footer' => UsersPoints::getTotal($dataProvider->models, 'points')
             ],
-            'notes',
+            // 'status',
+            // 'created_by',
+            //'created_at',
+            //'updated_by',0'9im  4d 
+            //'updated_at', 
+            
+            
+            
+            'notes:ntext',
 
-            ['class' => 'yii\grid\ActionColumn'],
-        ]
-    ])
-            ?>
+            // ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>
+
+
+</div>
+<p>
+    <?= Html::a('Back to Profile', ['/users/view', 'id' => Yii::$app->user->identity->unique_id], ['class' => 'btn btn-primary']) ?>
+</p>
+</div>

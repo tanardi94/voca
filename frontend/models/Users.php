@@ -48,10 +48,10 @@ class Users extends CustomActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['created_at', 'updated_at'], 'safe'],
+            [['created_at', 'updated_at', 'birth_date'], 'safe'],
             [['created_by', 'updated_by', 'status'], 'integer'],
             [['name', 'address'], 'string', 'max' => 100],
-            [['email', 'username', 'photo'], 'string', 'max' => 50],
+            [['email', 'username', 'photo', 'gender'], 'string', 'max' => 50],
             [['encrypted_password'], 'string', 'max' => 80],
         ];
     }

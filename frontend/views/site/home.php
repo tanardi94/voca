@@ -276,7 +276,7 @@ $promo = Segment::find()->where(['status' => 1, 'seq' => 0, 'title' => 'PROMO SP
   <div class="dropdown-menu">
     <a class="dropdown-item" target="_blank" href="https://www.tokopedia.com/vocaofficial">Tokopedia</a>
     <a class="dropdown-item" target="_blank" href="https://shopee.co.id/vocaofficial">Shopee</a>
-    <a class="dropdown-item" target="_blank" href="https://api.whatsapp.com/send?phone=6281232999913&text=Halo%20Kak, saya%20mau%20memesan%20produk%20VOCA.">WhatsApp</a>
+    <a class="dropdown-item" target="_blank" href="https://api.whatsapp.com/send?phone=62818596813&text=Halo%20Kak, saya%20mau%20memesan%20produk%20VOCA.">WhatsApp</a>
   </div>
 </div>
         </div>
@@ -297,7 +297,7 @@ $promo = Segment::find()->where(['status' => 1, 'seq' => 0, 'title' => 'PROMO SP
             <?php
             foreach ($products as $product):
             ?>
-          <div class="col-lg-4 col-md-6 mb-5">
+          <div class="col-lg-3 col-md-6 mb-5">
             <div class="product-item">
               <figure>
                 <img src="<?= Yii::$app->params['product-images'] . $product->photo ?>" alt="Image" class="img-fluid" style="width:200px;height:200px;">
@@ -319,7 +319,7 @@ $promo = Segment::find()->where(['status' => 1, 'seq' => 0, 'title' => 'PROMO SP
       </div>
     </div>
         
-  <a href="https://wa.me/6281232999913" class="floats" target="_blank">
+  <a href="https://wa.me/62818596813" class="floats" target="_blank">
 <i class="fa fa-whatsapp my-floats"></i>
 </a>
 <?php

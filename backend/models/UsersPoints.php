@@ -61,7 +61,7 @@ class UsersPoints extends \backend\models\CustomActiveRecord
             'updated_by' => 'Updated By',
             'updated_at' => 'Updated At',
             'source' => 'Tempat Beli',
-            'amount' => 'Dalam Rupiah',
+            'amount' => 'Nominal Transaksi',
             'transaction_date' => 'Tanggal Transaksi',
             'notes' => 'Keterangan',
         ];

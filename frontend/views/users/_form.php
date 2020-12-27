@@ -9,6 +9,7 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Users */
 /* @var $form yii\widgets\ActiveForm */
+$selling = SellingAsset::register($this);
 ?>
 
 <div class="users-form col-md-6">

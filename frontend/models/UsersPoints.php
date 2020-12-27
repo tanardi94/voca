@@ -15,10 +15,14 @@ use Yii;
  * @property string $created_at
  * @property int $updated_by
  * @property string $updated_at
+ * @property int|null $source
+ * @property int $amount
+ * @property string $transaction_date
+ * @property string|null $notes
  *
  * @property Users $user
  */
-class UsersPoints extends \yii\db\ActiveRecord
+class UsersPoints extends \backend\models\CustomActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -34,9 +38,10 @@ class UsersPoints extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'points', 'created_by', 'created_at', 'updated_by', 'updated_at'], 'required'],
-            [['user_id', 'points', 'status', 'created_by', 'updated_by'], 'integer'],
-            [['created_at', 'updated_at'], 'safe'],
+            [['user_id', 'points', 'amount'], 'required'],
+            [['user_id', 'points', 'status', 'created_by', 'updated_by', 'source', 'amount'], 'integer'],
+            [['created_at', 'updated_at', 'transaction_date'], 'safe'],
+            [['notes'], 'string'],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
@@ -49,12 +54,16 @@ class UsersPoints extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'user_id' => 'User ID',
-            'points' => 'Points',
+            'points' => 'Jumlah Poin',
             'status' => 'Status',
             'created_by' => 'Created By',
             'created_at' => 'Created At',
             'updated_by' => 'Updated By',
             'updated_at' => 'Updated At',
+            'source' => 'Tempat Beli',
+            'amount' => 'Dalam Rupiah',
+            'transaction_date' => 'Tanggal Transaksi',
+            'notes' => 'Keterangan',
         ];
     }
 
@@ -66,5 +75,13 @@ class UsersPoints extends \yii\db\ActiveRecord
     public function getUser()
     {
         return $this->hasOne(Users::className(), ['id' => 'user_id']);
+    }
+
+    public static function getTotal($provider, $fieldName) {
+        $total = 0;
+        foreach($provider as $item) {
+            $total += $item[$fieldName];
+        }
+        return $total;
     }
 }
