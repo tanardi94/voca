@@ -76,9 +76,9 @@ class Users extends CustomActiveRecord
             'status' => 'Status',
             'unique_id' => 'Unique ID',
             'username' => 'Username',
-            'name' => 'Name',
+            'name' => 'Nama',
             'email' => 'Email',
-            'photo' => 'Photo',
+            'photo' => 'Foto',
             'encrypted_password' => 'Encrypted Password',
             'salt' => 'Salt',
             'auth_key' => 'Auth Key',
@@ -87,12 +87,12 @@ class Users extends CustomActiveRecord
             'created_by' => 'Created By',
             'updated_at' => 'Updated At',
             'updated_by' => 'Updated By',
-            'gender' => 'Gender',
+            'gender' => 'Jenis Kelamin',
             'token' => 'Token',
             'password_reset_token' => 'Password Reset Token',
-            'phone' => 'Phone',
-            'address' => 'Address',
-            'birth_date' => 'Birth Date',
+            'phone' => 'No Telepon',
+            'address' => 'Alamat',
+            'birth_date' => 'Tanggal Lahir',
             'imageFile' => 'Picture'
         ];
     }
