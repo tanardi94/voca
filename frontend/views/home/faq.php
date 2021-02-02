@@ -40,3 +40,7 @@ $this->title = 'Voca Beauty Store';
 <?php endforeach; ?>
 </div>
 </div>
+<br>
+<br>
+<br>
+<br>

@@ -9,7 +9,6 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Users */
 /* @var $form yii\widgets\ActiveForm */
-$selling = SellingAsset::register($this);
 ?>
 
 <div class="users-form col-md-6">
@@ -28,7 +27,7 @@ $selling = SellingAsset::register($this);
     }
     else {
         echo '<div class="form-group">
-        <h5><b>Photo</b></h5>';
+        <h5><b>Foto</b></h5>';
         echo Html::img(Yii::$app->params['users-images'] . $model->photo, [
             'alt'=>Yii::t('app', 'Product for ') . $model->name,
             'title'=>Yii::t('app', 'Click remove button below to remove this image'),
@@ -40,7 +39,7 @@ $selling = SellingAsset::register($this);
         echo '</div>
         <div class="form-group">';
         echo Html::a(
-            Yii::t('app', 'Change Image'), 
+            Yii::t('app', 'Ganti Foto'), 
             Url::to(['/users/delimage', 'id'=>$model->unique_id]),
             ['class' => 'btn btn-primary']
         );
@@ -49,7 +48,7 @@ $selling = SellingAsset::register($this);
     ?>
     
     <?= $form->field($model, 'gender')->dropDownList([
-        'Male' => 'Male', 'Female' => 'Female'
+        'Male' => 'Laki-laki', 'Female' => 'Perempuan'
     ]) ?>
 
     <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>

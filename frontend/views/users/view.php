@@ -8,7 +8,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Users */
 
-$this->title = 'My Profile';
+$this->title = 'Profil Saya';
 $this->params['breadcrumbs'][] = ['label' => 'Users', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
@@ -32,7 +32,13 @@ $selling = SellingAsset::register($this);
                 'value' => Yii::$app->params['users-images'] . $model->photo,
                 'format' => ['image',['width'=>'200','height'=>'200']]
             ],
-            'gender',
+            [
+                'attribute' => 'gender',
+                'value' => function($data) {
+                    $gender = ['Male' => 'Laki-laki', 'Female' => 'Perempuan'];
+                    return $gender[$data->gender];
+                }
+            ],
             'phone',
             'address',
             [
@@ -42,7 +48,7 @@ $selling = SellingAsset::register($this);
                 }
             ],
             [
-                'label' => 'My Points',
+                'label' => 'Poin Saya',
                 'value' => function ($data) {
                     $points = UsersPoints::find()->where(['status' => 1, 'user_id' => $data->id])->sum('points');
                     return $points;
@@ -51,7 +57,7 @@ $selling = SellingAsset::register($this);
             [
                 'label'=>'',
                 'format'=>'raw',
-                'value'=>Html::a('See Your Points History', ['/users-points']),
+                'value'=>Html::a('Lihat Riwayat Poin Saya', ['/users-points']),
             ],
         ]
     ]) ?>

@@ -8,7 +8,7 @@ use frontend\assets\SellingAsset;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Login';
+$this->title = 'Masuk';
 $this->params['breadcrumbs'][] = $this->title;
 $selling = SellingAsset::register($this);
 ?>
@@ -20,7 +20,7 @@ $selling = SellingAsset::register($this);
 <div class="container">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out the following fields to login:</p>
+    <p>SIlahkan isi kolom berikut untuk masuk</p>
     <div class="row">
         <div class="col-lg-5 mt-4">
             <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
@@ -29,10 +29,8 @@ $selling = SellingAsset::register($this);
 
                 <?= $form->field($model, 'password')->passwordInput() ?>
 
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
-
                 <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                    <?= Html::submitButton('Masuk', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
                 </div>
 
             <?php ActiveForm::end(); ?>

@@ -84,7 +84,7 @@ class UsersController extends Controller
         $additionalModel = new DynamicModel([
             'old_password', 'new_password', 'another_new_password'
         ]);
-        $additionalModel->addRule(['old_password', 'new_password', 'another_new_password'], 'required')->addRule(
+        $additionalModel->addRule(['old_password', 'new_password', 'another_new_password'], 'required', ['message' => '{attribute} tidak boleh kosong'])->addRule(
             ['old_password', 'new_password', 'another_new_password'], 'string'
         );
         $model = ModelsUsers::findOne(['status' => 1, 'unique_id' => $unique_id]);

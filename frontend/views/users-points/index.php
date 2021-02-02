@@ -76,6 +76,6 @@ $shops = ['Tokopedia', 'Shopee', 'WhatsApp'];
 
 </div>
 <p>
-    <?= Html::a('Back to Profile', ['/users/view', 'id' => Yii::$app->user->identity->unique_id], ['class' => 'btn btn-primary']) ?>
+    <?= Html::a('Kembali ke Profil', ['/users/view', 'id' => Yii::$app->user->identity->unique_id], ['class' => 'btn btn-primary']) ?>
 </p>
 </div>

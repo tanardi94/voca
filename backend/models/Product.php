@@ -104,33 +104,36 @@ class Product extends CustomActiveRecord
     public function deleteImage()
     {
         $image = Yii::getAlias(Yii::$app->params['storage'] . '/uploads/product/') . $this->photo;
-        if(unlink($image)) {
-            $this->photo = null;
-            $this->save();
-            return true;
+        if(file_exists($image)) {
+            unlink($image);
         }
+        $this->photo = null;
+        $this->save();
+        return true;
         return false;
     }
 
     public function deleteImage2()
     {
         $image = Yii::getAlias(Yii::$app->params['storage'] . '/uploads/product/') . $this->photo_2;
-        if(unlink($image)) {
-            $this->photo_2 = null;
-            $this->save();
-            return true;
+        if(file_exists($image)) {
+            unlink($image);
         }
+        $this->photo_2 = null;
+        $this->save();
+        return true;
         return false;
     }
 
     public function deleteImage3()
     {
         $image = Yii::getAlias(Yii::$app->params['storage'] . '/uploads/product/') . $this->photo_3;
-        if(unlink($image)) {
-            $this->photo_3 = null;
-            $this->save();
-            return true;
+        if(file_exists($image)) {
+            unlink($image);
         }
+        $this->photo = null;
+        $this->save();
+        return true;
         return false;
     }
 

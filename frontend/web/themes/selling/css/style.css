@@ -140,22 +140,27 @@ h1, h2, h3, h4, h5,
 
 .site-footer {
   padding: 4em 0;
-  background: #333333; }
+  background: #239ba6; }
   @media (min-width: 768px) {
     .site-footer {
       padding: 8em 0; } }
   .site-footer .border-top {
     border-top: 1px solid rgba(255, 255, 255, 0.1) !important; }
   .site-footer p {
-    color: #737373; }
+    color: white; }
   .site-footer h2, .site-footer h3, .site-footer h4, .site-footer h5 {
     color: #000; }
   .site-footer a {
-    color: #999999; }
-    .site-footer a:hover {
-      color: black; }
+    color: white; }
+    .site-footer ul li a:hover {
+      color: #000; }
+  .site-footer span {
+    color: white;
+  }
   .site-footer ul li {
-    margin-bottom: 10px; }
+    margin-bottom: 10px;
+    color: white; 
+  }
   .site-footer .footer-heading {
     font-size: 16px;
     color: #000;
@@ -1807,6 +1812,7 @@ h1, h2, h3, h4, h5,
 
 .product-item-2 .price del {
   color: #adb5bd; }
+
 
 .product-item-2 .number {
   font-size: 8rem;

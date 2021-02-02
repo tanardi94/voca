@@ -53,10 +53,10 @@ $selling = SellingAsset::register($this);
             <nav class="site-navigation position-relative text-right" role="navigation">
 
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li><a href="<?= (Yii::$app->request->url == Url::to(['/site/index']) ? '' : Url::to(['/site/index'])) ?>#" class="nav-link">Home</a></li>
-                <li><a href="<?= (Yii::$app->request->url == Url::to(['/site/index']) ? '' : Url::to(['/site/index'])) ?>#products-section" class="nav-link">Products</a></li>
-                <li><a href="<?= (Yii::$app->request->url == Url::to(['/site/index']) ? '' : Url::to(['/site/index'])) ?>#testimonials-section" class="nav-link">Testimonials</a></li>
-                <li><a href="<?= (Yii::$app->request->url == Url::to(['/site/index']) ? '' : Url::to(['/site/index'])) ?>#special-section" class="nav-link">Special</a></li>
+                <li><a href="<?= (Yii::$app->request->url == Url::to(['/site/index']) ? '' : Url::to(['/site/index'])) ?>#" class="nav-link">Beranda</a></li>
+                <li><a href="<?= (Yii::$app->request->url == Url::to(['/site/index']) ? '' : Url::to(['/site/index'])) ?>#products-section" class="nav-link">Produk</a></li>
+                <li><a href="<?= (Yii::$app->request->url == Url::to(['/site/index']) ? '' : Url::to(['/site/index'])) ?>#special-section" class="nav-link">Promo Spesial</a></li>
+                <li><a href="<?= (Yii::$app->request->url == Url::to(['/site/index']) ? '' : Url::to(['/site/index'])) ?>#testimonials-section" class="nav-link">Testimonial</a></li>
                 <li><a href="<?= (Yii::$app->request->url == Url::to(['/site/index']) ? '' : Url::to(['/site/index'])) ?>#belanja-section" class="nav-link">Belanja</a></li>
                 <li><a href="<?= Url::to(['/site/blog']) ?>" class="nav-link">Blog</a></li>
                 <?php
@@ -72,9 +72,9 @@ $selling = SellingAsset::register($this);
                 <span style="text-transform:uppercase"><?= Yii::$app->user->identity->username ?></span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                  <a class="nav-link dropdown-item" href="<?= Url::to(['/users/view/?id=' . Yii::$app->user->identity->unique_id]) ?>">Account</a>
-                  <a class="nav-link dropdown-item" href="<?= Url::to(['/users/changepw/?unique_id=' . Yii::$app->user->identity->unique_id]) ?>">Change Password</a>
-                <?= Html::a('Logout', ['/site/logout'], ['class' => 'nav-link dropdown-item', 'data-method' => 'post'])
+                  <a class="nav-link dropdown-item" href="<?= Url::to(['/users/view/?id=' . Yii::$app->user->identity->unique_id]) ?>">Akun</a>
+                  <a class="nav-link dropdown-item" href="<?= Url::to(['/users/changepw/?unique_id=' . Yii::$app->user->identity->unique_id]) ?>">Ganti Kata Sandi</a>
+                <?= Html::a('Keluar', ['/site/logout'], ['class' => 'nav-link dropdown-item', 'data-method' => 'post'])
                 ?>
                 </div>
               <!-- </div> -->
@@ -96,7 +96,7 @@ $selling = SellingAsset::register($this);
        
         <?= $content ?>
         
-        <footer class="site-footer bg-white">
+        <footer class="site-footer">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -105,12 +105,12 @@ $selling = SellingAsset::register($this);
                 <h2 class="footer-heading mb-4">Informasi</h2>
                 <ul class="list-unstyled">
                   <li><a href="<?= Url::to(['site/about'])?>" target="_blank">Tentang Voca Beauty Store</a></li>
-                  <li><a href="<?= Url::to(['/home/faq']) ?>">Frequently Asked Question</a></li>
+                  <li><a href="<?= Url::to(['/home/faq']) ?>">Pertanyaan yang Sering Diajukan (FAQs)</a></li>
                   <li><a href="<?= Url::to(['site/login'])?>" target="_blank">Seputar Membership</a></li>
                 </ul>
               </div>
               <div class="col-md-4">
-                <h2 class="footer-heading mb-4">Belanja</h2>
+                <h2 class="footer-heading mb-4">Cara Berbelanja</h2>
                 <ul class="list-unstyled">
                   <li><a href="https://shopee.co.id/vocaofficial" target="_blank">Shopee</a></li>
                   <li><a href="https://www.tokopedia.com/vocaofficial" target="_blank">Tokopedia</a></li>
@@ -118,7 +118,7 @@ $selling = SellingAsset::register($this);
                 </ul>
               </div>
               <div class="col-md-4">
-                <h2 class="footer-heading mb-4">Follow Us</h2>
+                <h2 class="footer-heading mb-4">Ikuti Kami</h2>
                 <ul class="list-unstyled">
                 <li><span class="icon-whatsapp mr-3"></span>(+62) 818 - 596 - 813</li>
                 <li>

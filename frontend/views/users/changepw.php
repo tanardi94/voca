@@ -37,9 +37,9 @@ $selling = SellingAsset::register($this);
     <div class="col-lg-6 mt-4">
     <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
 
-    <?= $form->field($additionalModel, 'old_password')->textInput(['type' => 'password'])->label('Your current password') ?>
-    <?= $form->field($additionalModel, 'new_password')->textInput(['type' => 'password'])->label('Your new password') ?>
-    <?= $form->field($additionalModel, 'another_new_password')->textInput(['type' => 'password'])->label('Re-enter your new password') ?>
+    <?= $form->field($additionalModel, 'old_password')->textInput(['type' => 'password'])->label('Password Anda Saat Ini') ?>
+    <?= $form->field($additionalModel, 'new_password')->textInput(['type' => 'password'])->label('Password Baru Anda') ?>
+    <?= $form->field($additionalModel, 'another_new_password')->textInput(['type' => 'password'])->label('Verifikasi Password Baru Anda') ?>
 
     
 
@@ -52,3 +52,6 @@ $selling = SellingAsset::register($this);
     </div>
 </div>
 </div>
+<br>
+<br>
+<br>

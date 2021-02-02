@@ -49,7 +49,7 @@ class Users extends CustomActiveRecord
     {
         return [
             [['status', 'updated_password', 'created_by', 'updated_by'], 'integer'],
-            [['unique_id', 'name', 'encrypted_password', 'username'], 'required'],
+            [['unique_id', 'name', 'encrypted_password', 'username'], 'required', 'message' => '{attribute} tidak boleh kosong'],
             [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg', 'on' => 'create'],
             [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg', 'on' => 'update'],
             [['created_at', 'updated_at', 'birth_date'], 'safe'],
@@ -181,11 +181,12 @@ class Users extends CustomActiveRecord
     public function deleteImage()
     {
         $image = Yii::getAlias(Yii::$app->params['storage'] . '/uploads/users/') . $this->photo;
-        if(unlink($image)) {
-            $this->photo = null;
-            $this->save();
-            return true;
+        if(file_exists($image)) {
+            unlink($image);
         }
+        $this->photo = null;
+        $this->save();
+        return true;
         return false;
     }
 }

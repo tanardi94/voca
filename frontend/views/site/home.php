@@ -35,14 +35,14 @@ $promo = Segment::find()->where(['status' => 1, 'seq' => 0, 'title' => 'PROMO SP
                         
             <div class="row mb-4">
               <div class="col-md-8">
-                <h1># Beauty is Yours</h1>
-                <p class="mb-5 lead">VOCA merupakan skin care brand lokal yang menggunakan bahan baku premium dengan harga terjangkau</p>
+                <h1># <?= $banners[$j]->title ?></h1>
+                <p class="mb-5 lead"><?= $banners[$j]->description ?></p>
                 <div>
-                  <a href="<?= (Yii::$app->request->url == Url::to(['/site/index']) ? '' : Url::to(['/site/index'])) ?>#belanja-section" class="btn btn-white btn-outline-white py-3 px-5 rounded-0 mb-lg-0 mb-2 d-block d-sm-inline-block">Shop Now</a>
+                  <a href="<?= (Yii::$app->request->url == Url::to(['/site/index']) ? '' : Url::to(['/site/index'])) ?>#belanja-section" class="btn btn-white btn-outline-white py-3 px-5 rounded-0 mb-lg-0 mb-2 d-block d-sm-inline-block">Belanja Sekarang</a>
                   <?php
                 if(Yii::$app->user->isGuest):
                 ?>
-                  <a href="<?= Url::to(['/site/login']) ?>" class="btn btn-white py-3 px-5 rounded-0 d-block d-sm-inline-block">Club Membership</a>
+                  <a href="<?= Url::to(['/site/login']) ?>" class="btn btn-white py-3 px-5 rounded-0 d-block d-sm-inline-block">Klub Keanggotaan</a>
                 <?php else:
                   endif;
                 ?>
@@ -120,7 +120,7 @@ $promo = Segment::find()->where(['status' => 1, 'seq' => 0, 'title' => 'PROMO SP
       <div class="container">
         <div class="row mb-5">
           <div class="col-12 text-center">
-            <h3 class="section-sub-title">The Reasons</h3>
+            <h3 class="section-sub-title">Alasan</h3>
             <h2 class="section-title mb-3"><?= $whyVoca->title ?></h2>
           </div>
         </div>
@@ -182,10 +182,6 @@ $promo = Segment::find()->where(['status' => 1, 'seq' => 0, 'title' => 'PROMO SP
               <h3 class="text-black mb-4 font-weight-bold"><?= $product->name ?></h3>
               <p class="mb-4"><?= $product->description ?></p>
               
-              <div class="mb-4"> 
-                <h3 class="text-black font-weight-bold h5">Price:</h3>
-                <div class="price">IDR <?= number_format($product->price) ?></div>
-              </div>
               <p>
                 <a href="<?= (Yii::$app->request->url == Url::to(['/site/index']) ? '' : Url::to(['/site/index'])) ?>#belanja-section" class="btn btn-black btn-outline-black rounded-0 d-block mb-2 mb-lg-0 d-lg-inline-block">Beli</a>
               </p>
@@ -201,8 +197,8 @@ $promo = Segment::find()->where(['status' => 1, 'seq' => 0, 'title' => 'PROMO SP
       <div class="container">
         <div class="row mb-5">
           <div class="col-12 text-center">
-            <h3 class="section-sub-title">People Says</h3>
-            <h2 class="section-title mb-3">Testimonials</h2>
+            <h3 class="section-sub-title">Kata Orang</h3>
+            <h2 class="section-title mb-3">Testimonial</h2>
           </div>
         </div>
       </div>
@@ -255,11 +251,7 @@ $promo = Segment::find()->where(['status' => 1, 'seq' => 0, 'title' => 'PROMO SP
         </div>
 
       </div>
-    </div><br>
-    <br>
-    <br>
-    <br>
-    <br>
+    </div>
 
     <div id="belanja-section" class="site-blocks-cover inner-page-cover overlay get-notification"  style="background-color: gray;" data-aos="fade">
       <div class="container">

@@ -137,10 +137,10 @@ class UsersController extends Controller
         $model = Users::findOne($id);
         if ($model->deleteImage()) {
             Yii::$app->session->setFlash('success', 
-        'Your image was removed successfully. Upload another by clicking Browse below');
+        'Foto Anda telah berhasil dihapus. Silahkan upload foto baru');
         } else {
             Yii::$app->session->setFlash('error', 
-        'Error removing image. Please try again later or contact the system admin.');
+        'Terjadi kesalahan saat menghapus foto. Silahkan mencoba kembali atau hubungi admin untuk langkah lebih lanjut.');
         }
         return $this->redirect(['update', 'id' => $model->id]);
     }
